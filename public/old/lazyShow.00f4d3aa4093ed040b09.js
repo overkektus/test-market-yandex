@@ -1,0 +1,1 @@
+_require(["vendor"],function(){webpackJsonp([39],{2185:function(e,n){!function(){window.LAZY_SHOW_DISABLED=!0,document.addEventListener("DOMContentLoaded",function e(){e._retries?e._retries++:e._retries=1,"function"==typeof BEM?BEM.channel("seo:lazy-show").trigger("show"):e._retries<10&&setTimeout(e,100)})}()}},[2185])});
