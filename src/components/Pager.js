@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class Pager extends React.Component {
   render() {
@@ -83,8 +83,8 @@ class Pager extends React.Component {
           </select>
         </span>
       </div>
-    );
+    )
   }
 }
 
-export default Pager;
+export default Pager

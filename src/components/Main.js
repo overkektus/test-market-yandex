@@ -1,9 +1,9 @@
-import React from "react";
-import Header from "./Header";
-import Tabs from "./Tabs";
-import PageSearch from "./PageSearch";
-import Layout from "./Layout";
-import Footer from "./Footer";
+import React from 'react'
+import Header from './Header'
+import Tabs from './Tabs'
+import PageSearch from './PageSearch'
+import Layout from './Layout'
+import Footer from './Footer'
 
 class Main extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class Main extends React.Component {
         <div
           className="n-w-tabs__popup-shadow i-bem"
           style={{
-            display: "none"
+            display: 'none',
           }}
         />
         <Tabs />
@@ -41,8 +41,8 @@ class Main extends React.Component {
           className="i-flashcookie"
         /> */}
       </div>
-    );
+    )
   }
 }
 
-export default Main;
+export default Main

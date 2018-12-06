@@ -1,12 +1,9 @@
-import React from "react";
+import React from 'react'
 
 class Header extends React.Component {
   render() {
     return (
-      <div
-        className="header2 suggest-owner i-bem header2_type_default"
-        data-bem="{suggest-owner:}"
-      >
+      <div className="header2 suggest-owner i-bem header2_type_default" data-bem="{suggest-owner:}">
         {/* <noindex> */}
         <div
           className="head-banner head-banner_type_stock market-metrika i-bem metrika_js_inited"
@@ -45,11 +42,7 @@ class Header extends React.Component {
             </div>
             <div className="header2__middle">
               <div className="header2__middle-wrap">
-                <div
-                  className="header2__left"
-                  itemType="https://schema.org/WebSite"
-                  itemScope
-                >
+                <div className="header2__left" itemType="https://schema.org/WebSite" itemScope>
                   <meta itemProp="url" content="https://market.yandex.by" />
                   <form
                     className="header2__search search2 search2_type_market suggest2-form suggest2-counter suggest2-counter_type_market suggest2-form_stats_yes i-bem search2_js_inited suggest2-counter_js_inited suggest2-form_js_inited"
@@ -219,9 +212,7 @@ class Header extends React.Component {
                                 role="button"
                               >
                                 <span className="button2__text">
-                                  <span className="user__enter-label">
-                                    Войти
-                                  </span>
+                                  <span className="user__enter-label">Войти</span>
                                 </span>
                               </a>
                             </div>
@@ -238,8 +229,8 @@ class Header extends React.Component {
         </div>
         {/* </noindex> */}
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header

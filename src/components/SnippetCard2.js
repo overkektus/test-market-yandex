@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class SnippetCard2 extends React.Component {
   render() {
@@ -74,9 +74,7 @@ class SnippetCard2 extends React.Component {
                     </div>
                   </div> */}
 
-          <div className="stickers__sticker stickers__sticker_type_new">
-            Новинка
-          </div>
+          <div className="stickers__sticker stickers__sticker_type_new">Новинка</div>
 
           {/* <div className="stickers__sticker stickers__sticker_type_discount">
                           <span className="sticker_type_discount__text">
@@ -137,14 +135,9 @@ class SnippetCard2 extends React.Component {
               >
                 <div className="n-reasons-to-buy__content">
                   <span className="n-reasons-to-buy__label">
-                    Покупателям нравится{" "}
-                    <span className="n-reason-to-buy__best-item">
-                      подставка
-                    </span>
-                    ,{" "}
-                    <span className="n-reason-to-buy__best-item">
-                      качество картинки
-                    </span>
+                    Покупателям нравится{' '}
+                    <span className="n-reason-to-buy__best-item">подставка</span>,{' '}
+                    <span className="n-reason-to-buy__best-item">качество картинки</span>
                   </span>
                   <div
                     data-bem="{popup:{directions:{to:bottom,axis:left,tail:{axis:left}}}}"
@@ -153,26 +146,17 @@ class SnippetCard2 extends React.Component {
                     <div className="popup__under  " />
                     <i className="popup__tail" />
                     <div className="popup__content">
-                      Характеристики, которые покупатели отметили высокой
-                      оценкой в отзывах
+                      Характеристики, которые покупатели отметили высокой оценкой в отзывах
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <ul className="n-snippet-card2__desc n-snippet-card2__desc_type_list">
-              <li className="n-snippet-card2__desc-item">
-                ЖК-монитор с диагональю 27"
-              </li>
-              <li className="n-snippet-card2__desc-item">
-                тип матрицы экрана TFT IPS
-              </li>
-              <li className="n-snippet-card2__desc-item">
-                разрешение 2560x1440 (16:9)
-              </li>
-              <li className="n-snippet-card2__desc-item">
-                подключение: HDMI, DisplayPort
-              </li>
+              <li className="n-snippet-card2__desc-item">ЖК-монитор с диагональю 27"</li>
+              <li className="n-snippet-card2__desc-item">тип матрицы экрана TFT IPS</li>
+              <li className="n-snippet-card2__desc-item">разрешение 2560x1440 (16:9)</li>
+              <li className="n-snippet-card2__desc-item">подключение: HDMI, DisplayPort</li>
               <li className="n-snippet-card2__desc-item">яркость 300 кд/м2</li>
             </ul>
             <div className="n-snippet-card2__reasons-to-buy-item" />
@@ -199,7 +183,7 @@ class SnippetCard2 extends React.Component {
                 href="https://market.yandex.by/product--monitor-viewsonic-va2719-2k-smhd/1963924408/offers?track=srchbtn&show-uid=15435075889809456972816001&context=search"
               >
                 3 предложения
-              </a>{" "}
+              </a>{' '}
               от <span className="price">626,55 б.p.</span>
             </div>
             <div
@@ -210,8 +194,8 @@ class SnippetCard2 extends React.Component {
           <div className="n-snippet-card2__bottom" />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default SnippetCard2;
+export default SnippetCard2

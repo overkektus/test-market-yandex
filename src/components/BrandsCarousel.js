@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class BrandsCarousel extends React.Component {
   render() {
@@ -7,9 +7,7 @@ class BrandsCarousel extends React.Component {
         className="n-carousel metrika n-carousel_size_3 n-box i-bem layout__brands-carousel b-zone b-spy-visible b-spy-visible_js_inited metrika_js_inited n-carousel_js_inited"
         data-bem="{b-zone:{name:carousel,data:{garson:PopularBrands}},b-spy-visible:{mode:{x:0,y:0,dy:70}},n-carousel:{top:,view:{columns:3,rows:0,rewind:full,rewindSpeed:,pager:{place:null},type:small,cellParams:},metrika:{track:search_brands_snippet,onPixelsVisible:search_brands_snippet_show,onPagerClick:search_brands_button_list}},metrika:{onPixelsVisible:{mbolayoutWidgets:search_brands_snippet_show}}}"
       >
-        <h2 className="title title_size_22 title_indent_bottom">
-          Популярные бренды
-        </h2>
+        <h2 className="title title_size_22 title_indent_bottom">Популярные бренды</h2>
         <div
           className="n-carousel__item i-bem  n-carousel__item_internal_false b-zone i-slider i-slider_async_yes i-slider_with_nav i-slider_custom-arrows i-slider_flex_yes i-slider_size_3 i-slider_js_inited i-slider_initialized_yes"
           data-bem="{i-slider:{loop:false,rewind:false,rewindSpeed:,disableItemWrapping:true,slideBy:3,items:3,navPosition:,navStyle:,cellType:small,stateKey:DataCollector#6b596fc9-0c02-4b1d-b4f4-e85c60281d5a,metrika:{track:search_brands_snippet,onPixelsVisible:search_brands_snippet_show,onPagerClick:search_brands_button_list},rows:0,convertCurrency:,cellParams:}}"
@@ -19,16 +17,16 @@ class BrandsCarousel extends React.Component {
               <div
                 className="i-slider__stage"
                 style={{
-                  transform: "translate3d(0px, 0px, 0px)",
-                  transition: "0s linear",
-                  width: "1451px"
+                  transform: 'translate3d(0px, 0px, 0px)',
+                  transition: '0s linear',
+                  width: '1451px',
                 }}
               >
                 <div
                   className="n-images-set__item island metrika i-bem i-slider__item i-slider__item-wrap i-slider__item-wrap_active_yes"
                   style={{
-                    width: "227.667px",
-                    marginRight: "14px"
+                    width: '227.667px',
+                    marginRight: '14px',
                   }}
                 >
                   <img
@@ -42,19 +40,15 @@ class BrandsCarousel extends React.Component {
                     title="AOC"
                   >
                     <span className="n-images-set__image">
-                      <img
-                        src="./old/orig"
-                        className="image"
-                        alt="AOC"
-                      />
+                      <img src="./old/orig" className="image" alt="AOC" />
                     </span>
                   </a>
                 </div>
                 <div
                   className="n-images-set__item island metrika i-bem i-slider__item i-slider__item-wrap i-slider__item-wrap_active_yes"
                   style={{
-                    width: "227.667px",
-                    marginRight: "14px"
+                    width: '227.667px',
+                    marginRight: '14px',
                   }}
                 >
                   <img
@@ -68,19 +62,15 @@ class BrandsCarousel extends React.Component {
                     title="Samsung"
                   >
                     <span className="n-images-set__image">
-                      <img
-                        src="./old/orig(1)"
-                        className="image"
-                        alt="Samsung"
-                      />
+                      <img src="./old/orig(1)" className="image" alt="Samsung" />
                     </span>
                   </a>
                 </div>
                 <div
                   className="n-images-set__item island metrika i-bem i-slider__item i-slider__item-wrap i-slider__item-wrap_active_yes"
                   style={{
-                    width: "227.667px",
-                    marginRight: "14px"
+                    width: '227.667px',
+                    marginRight: '14px',
                   }}
                 >
                   <img
@@ -94,19 +84,15 @@ class BrandsCarousel extends React.Component {
                     title="LG"
                   >
                     <span className="n-images-set__image">
-                      <img
-                        src="./old/orig(2)"
-                        className="image"
-                        alt="LG"
-                      />
+                      <img src="./old/orig(2)" className="image" alt="LG" />
                     </span>
                   </a>
                 </div>
                 <div
                   className="n-images-set__item island metrika i-bem i-slider__item i-slider__item-wrap"
                   style={{
-                    width: "227.667px",
-                    marginRight: "14px"
+                    width: '227.667px',
+                    marginRight: '14px',
                   }}
                 >
                   <img
@@ -120,19 +106,15 @@ class BrandsCarousel extends React.Component {
                     title="BenQ"
                   >
                     <span className="n-images-set__image">
-                      <img
-                        src="./old/orig(3)"
-                        className="image"
-                        alt="BenQ"
-                      />
+                      <img src="./old/orig(3)" className="image" alt="BenQ" />
                     </span>
                   </a>
                 </div>
                 <div
                   className="n-images-set__item island metrika i-bem i-slider__item i-slider__item-wrap"
                   style={{
-                    width: "227.667px",
-                    marginRight: "14px"
+                    width: '227.667px',
+                    marginRight: '14px',
                   }}
                 >
                   <img
@@ -146,19 +128,15 @@ class BrandsCarousel extends React.Component {
                     title="Acer"
                   >
                     <span className="n-images-set__image">
-                      <img
-                        src="./old/orig(4)"
-                        className="image"
-                        alt="Acer"
-                      />
+                      <img src="./old/orig(4)" className="image" alt="Acer" />
                     </span>
                   </a>
                 </div>
                 <div
                   className="n-images-set__item island metrika i-bem i-slider__item i-slider__item-wrap"
                   style={{
-                    width: "227.667px",
-                    marginRight: "14px"
+                    width: '227.667px',
+                    marginRight: '14px',
                   }}
                 >
                   <img
@@ -172,11 +150,7 @@ class BrandsCarousel extends React.Component {
                     title="Philips"
                   >
                     <span className="n-images-set__image">
-                      <img
-                        src="./old/orig(5)"
-                        className="image"
-                        alt="Philips"
-                      />
+                      <img src="./old/orig(5)" className="image" alt="Philips" />
                     </span>
                   </a>
                 </div>
@@ -198,8 +172,8 @@ class BrandsCarousel extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default BrandsCarousel;
+export default BrandsCarousel

@@ -1,12 +1,12 @@
-import React from "react";
-import SnippetCard2 from "./SnippetCard2";
-import PagerMore from "./PagerMore";
-import Pager from "./Pager";
-import SerpSearch from "./SerpSearch";
-import LegalInfo from "./LegalInfo";
-import BrandsCarousel from "./BrandsCarousel";
-import ReviewsHub from "./ReviewsHub";
-import PopularSearch from "./PopularSearch";
+import React from 'react'
+import SnippetCard2 from './SnippetCard2'
+import PagerMore from './PagerMore'
+import Pager from './Pager'
+import SerpSearch from './SerpSearch'
+import LegalInfo from './LegalInfo'
+import BrandsCarousel from './BrandsCarousel'
+import ReviewsHub from './ReviewsHub'
+import PopularSearch from './PopularSearch'
 
 class SearchResultsNormal extends React.Component {
   render() {
@@ -18,9 +18,7 @@ class SearchResultsNormal extends React.Component {
         >
           <div className="serp-empty__wrapper">
             <div className="title">Нет подходящих товаров</div>
-            <div className="serp-empty__subtitle">
-              попробуйте смягчить условия поиска
-            </div>
+            <div className="serp-empty__subtitle">попробуйте смягчить условия поиска</div>
             <button
               className="button button_action_n-filter-reset button_size_m button_pseudo_yes button_theme_pseudo i-bem"
               type="button"
@@ -38,7 +36,7 @@ class SearchResultsNormal extends React.Component {
             className="n-filter-applied-results__content preloadable i-bem preloadable_js_inited"
             data-bem="{preloadable: {size:m, paranja: true}}"
             style={{
-              height: "auto"
+              height: 'auto',
             }}
           >
             <div
@@ -9408,8 +9406,8 @@ class SearchResultsNormal extends React.Component {
         <ReviewsHub />
         <PopularSearch />
       </div>
-    );
+    )
   }
 }
 
-export default SearchResultsNormal;
+export default SearchResultsNormal

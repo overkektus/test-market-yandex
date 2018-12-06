@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class PopularSearch extends React.Component {
   render() {
@@ -7,9 +7,7 @@ class PopularSearch extends React.Component {
         className="n-popular-recipes preloadable i-bem b-zone n-popular-recipes_mode_search preloadable_js_inited n-popular-recipes_js_inited n-popular-recipes_show-more_no"
         data-bem="{n-popular-recipes:{reviewsMode:,navNode:{id:54539}},preloadable:{size:m,paranja:true},b-zone:{name:popular-recipes,data:{reviewsMode:}}}"
       >
-        <div className="n-popular-recipes__title title title_size_22">
-          Часто ищут
-        </div>
+        <div className="n-popular-recipes__title title title_size_22">Часто ищут</div>
         <div className="n-popular-recipes__content">
           <div className="n-popular-recipes-list__wrapper">
             <div
@@ -210,8 +208,8 @@ class PopularSearch extends React.Component {
           </button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default PopularSearch;
+export default PopularSearch

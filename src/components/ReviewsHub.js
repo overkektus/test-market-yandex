@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class ReviewsHub extends React.Component {
   render() {
@@ -210,8 +210,8 @@ class ReviewsHub extends React.Component {
           </button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ReviewsHub;
+export default ReviewsHub

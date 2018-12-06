@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class SerpSearch extends React.Component {
   render() {
@@ -9,10 +9,7 @@ class SerpSearch extends React.Component {
             <div data-reactroot className="_3IepGqjPIb" data-fc1090cb="true">
               <span className="_1MRiWn1yf5">
                 <div className="_3OmtppoSZX">
-                  <div
-                    className="_2N40m3QiXj _2ol07oX9b- _1zmBDFyCPK "
-                    data-8b8caab="true"
-                  >
+                  <div className="_2N40m3QiXj _2ol07oX9b- _1zmBDFyCPK " data-8b8caab="true">
                     <svg>
                       <use xlinkHref="#icons_tick" />
                     </svg>
@@ -20,10 +17,7 @@ class SerpSearch extends React.Component {
                 </div>
                 Нашли, что искали?
               </span>
-              <div
-                className="_1vv7UbVuSh _2v5QPg9KJl JbMUawiyKE"
-                data-dde4463b="true"
-              >
+              <div className="_1vv7UbVuSh _2v5QPg9KJl JbMUawiyKE" data-dde4463b="true">
                 <div className="ne-Oqc46eP">
                   <button
                     className="OcaftndW9c _4WmLhr2Vhx _1nrU_peCrO"
@@ -51,7 +45,7 @@ class SerpSearch extends React.Component {
                     placeholder="\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430, \u0440\u0430\u0441\u0441\u043A\u0430\u0436\u0438\u0442\u0435 \u043E \u0432\u0430\u0448\u0435\u0439 \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0435"
                     id="textfield4164231729"
                     aria-labelledby="labeltextfield4164231729"
-                    defaultValue={""}
+                    defaultValue={''}
                   />
                 </div>
                 <div className="ywGN7a9lqY">
@@ -72,8 +66,8 @@ class SerpSearch extends React.Component {
                 </div>
               </div>
               <div className="jE8a0ZSp8e _2THuUJ-e6l" data-9f0b4afb="true">
-                Ваши комментарии очень важны для нас и помогают улучшить наши
-                результаты поиска для всех наших клиентов
+                Ваши комментарии очень важны для нас и помогают улучшить наши результаты поиска для
+                всех наших клиентов
               </div>
             </div>
           </div>
@@ -93,8 +87,8 @@ class SerpSearch extends React.Component {
           Искать «Мониторы» в Яндексе
         </a>
       </div>
-    );
+    )
   }
 }
 
-export default SerpSearch;
+export default SerpSearch

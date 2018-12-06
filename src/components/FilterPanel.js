@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class FilterPanel extends React.Component {
   render() {
@@ -90,17 +90,10 @@ class FilterPanel extends React.Component {
                   data-bem="{checkbox:}"
                 >
                   <span className="checkbox__box">
-                    <input
-                      className="checkbox__control"
-                      id="local-offers-first"
-                      type="checkbox"
-                    />
+                    <input className="checkbox__control" id="local-offers-first" type="checkbox" />
                     <i className="checkbox__tick" />
                   </span>
-                  <label
-                    className="checkbox__label"
-                    htmlFor="local-offers-first"
-                  >
+                  <label className="checkbox__label" htmlFor="local-offers-first">
                     Сначала предложения в моём регионе
                   </label>
                 </span>
@@ -140,8 +133,8 @@ class FilterPanel extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default FilterPanel;
+export default FilterPanel

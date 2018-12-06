@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class PagerMore extends React.Component {
   render() {
@@ -17,19 +17,12 @@ class PagerMore extends React.Component {
             <span className="button__text">Показать еще</span>
           </a>
         </div>
-        <div
-          className="spin spin_theme_gray-24 i-bem spin_js_inited"
-          data-bem="{spin: }"
-        >
-          <img
-            alt=""
-            src="./old/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif"
-            className="image spin__icon"
-          />
+        <div className="spin spin_theme_gray-24 i-bem spin_js_inited" data-bem="{spin: }">
+          <img alt="" src="./old/La6qi18Z8LwgnZdsAr1qy1GwCwo.gif" className="image spin__icon" />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default PagerMore;
+export default PagerMore

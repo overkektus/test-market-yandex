@@ -1,5 +1,5 @@
-import React from "react";
-import Main from "./Main";
+import React from 'react'
+import Main from './Main'
 
 class Body extends React.Component {
   render() {
@@ -9,9 +9,9 @@ class Body extends React.Component {
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           style={{
-            position: "absolute",
+            position: 'absolute',
             width: 0,
-            height: 0
+            height: 0,
           }}
           id="__SVG_SPRITE_NODE__"
         >
@@ -74,10 +74,7 @@ class Body extends React.Component {
               <circle cx={12} cy={12} r={3} fillRule="evenodd" />
             </symbol>
             <symbol viewBox="0 0 24 24" id="icons_burger">
-              <path
-                fillRule="evenodd"
-                d="M2 6V4h20v2H2zm0 7v-2h20v2H2zm0 7v-2h20v2H2z"
-              />
+              <path fillRule="evenodd" d="M2 6V4h20v2H2zm0 7v-2h20v2H2zm0 7v-2h20v2H2z" />
             </symbol>
             <symbol viewBox="0 0 24 24" id="icons_camera">
               <path
@@ -134,10 +131,7 @@ class Body extends React.Component {
               />
             </symbol>
             <symbol viewBox="0 0 24 24" id="icons_copy">
-              <path
-                fillRule="evenodd"
-                d="M5 2h12v2H5v14H3V2h2zm2 4h14v16H7V6z"
-              />
+              <path fillRule="evenodd" d="M5 2h12v2H5v14H3V2h2zm2 4h14v16H7V6z" />
             </symbol>
             <symbol viewBox="0 0 24 24" id="icons_corner-down">
               <path
@@ -311,10 +305,7 @@ class Body extends React.Component {
               />
             </symbol>
             <symbol viewBox="0 0 24 24" id="icons_selector-arrows">
-              <path
-                fillRule="evenodd"
-                d="M12 2l5.333 8H6.667L12 2zm0 20l-5.333-8h10.666L12 22z"
-              />
+              <path fillRule="evenodd" d="M12 2l5.333 8H6.667L12 2zm0 20l-5.333-8h10.666L12 22z" />
             </symbol>
             <symbol viewBox="0 0 24 24" id="icons_services">
               <path d="M5 5v4h4V5H5zM3 3h8v8H3V3zm12 2v4h4V5h-4zm-2-2h8v8h-8V3zM5 15v4h4v-4H5zm-2-2h8v8H3v-8zm12 2v4h4v-4h-4zm-2-2h8v8h-8v-8z" />
@@ -361,8 +352,7 @@ class Body extends React.Component {
           </symbol>
         </svg>
         <Main />
-        
-        
+
         <div
           data-apiary-widget-name="@MarketNode/Notification"
           data-apiary-widget-id="/notification"
@@ -376,8 +366,8 @@ class Body extends React.Component {
           />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Body;
+export default Body

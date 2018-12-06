@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class LegalInfo extends React.Component {
   render() {
@@ -10,12 +10,12 @@ class LegalInfo extends React.Component {
         >
           <div className="n-shops-info__block">
             <div className="n-shops-info__info-line">
-              Стоимость доставки из других регионов приблизительная. Точную
-              стоимость уточняйте у продавца.
+              Стоимость доставки из других регионов приблизительная. Точную стоимость уточняйте у
+              продавца.
             </div>
             <div className="n-shops-info__info-line">
-              Товары в разделе «Вместе с этим покупают» подобраны автоматически.
-              Совместимость товаров уточняйте у продавца или производителя.
+              Товары в разделе «Вместе с этим покупают» подобраны автоматически. Совместимость
+              товаров уточняйте у продавца или производителя.
             </div>
           </div>
         </div>
@@ -33,8 +33,8 @@ class LegalInfo extends React.Component {
           </a>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default LegalInfo;
+export default LegalInfo

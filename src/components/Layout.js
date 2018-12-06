@@ -1,7 +1,7 @@
-import React from "react";
-import FilterPanel from "./FilterPanel";
-import SearchResultsNormal from "./SearchResultsNormal";
-import SearchLayout from "./SearchLayout";
+import React from 'react'
+import FilterPanel from './FilterPanel'
+import SearchResultsNormal from './SearchResultsNormal'
+import SearchLayout from './SearchLayout'
 
 class Layout extends React.Component {
   render() {
@@ -13,8 +13,8 @@ class Layout extends React.Component {
           <SearchLayout />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Layout;
+export default Layout

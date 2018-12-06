@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 class Footer extends React.Component {
   render() {
@@ -29,18 +29,10 @@ class Footer extends React.Component {
                 <div className="title title_size_22">Вы смотрели</div>
                 <div className="pager-arrows">
                   <span className="pager-arrows__item pager-arrows__item_type_prev i-bem pager-arrows__item_type_prev_js_inited">
-                    <img
-                      className="image"
-                      src="./old/La6qi18Z8LwgnZdsAr1qy1GwCwo(1).gif"
-                      alt="<"
-                    />
+                    <img className="image" src="./old/La6qi18Z8LwgnZdsAr1qy1GwCwo(1).gif" alt="<" />
                   </span>
                   <span className="pager-arrows__item pager-arrows__item_type_next i-bem pager-arrows__item_type_next_js_inited">
-                    <img
-                      className="image"
-                      src="./old/La6qi18Z8LwgnZdsAr1qy1GwCwo(1).gif"
-                      alt=">"
-                    />
+                    <img className="image" src="./old/La6qi18Z8LwgnZdsAr1qy1GwCwo(1).gif" alt=">" />
                   </span>
                 </div>
                 <div className="flex-grid__container snippet-list__container history-latest__list history-latest__list_state_loading i-bem history-latest__list_js_inited">
@@ -52,10 +44,7 @@ class Footer extends React.Component {
             </div>
           </div>
         </div>
-        <div
-          className="footer-market__info b-zone i-bem"
-          data-bem="{b-zone:{name:footer}}"
-        >
+        <div className="footer-market__info b-zone i-bem" data-bem="{b-zone:{name:footer}}">
           <div
             className="footer-market__content b-spy-visible i-bem b-spy-visible_js_inited"
             data-bem="{b-spy-visible:{mode:topLeft}}"
@@ -130,9 +119,7 @@ class Footer extends React.Component {
               <div className="footer-market__spacing-wrap">
                 <div className="footer-market__column-content">
                   <div className="footer-market__inner-container">
-                    <h5 className="footer-market__header">
-                      Мобильные приложения Яндекс.Маркет
-                    </h5>
+                    <h5 className="footer-market__header">Мобильные приложения Яндекс.Маркет</h5>
                     <div className="footer-market__promo-buttons">
                       <a
                         className="link i-bem link_js_inited"
@@ -169,12 +156,8 @@ class Footer extends React.Component {
                     <p className="footer-market__promo-text footer-market__header">
                       Советник находит нужные вам товары
                       <br />
-                      по более выгодной цене.{" "}
-                      <span
-                        className="link"
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                      >
+                      по более выгодной цене.{' '}
+                      <span className="link" target="_blank" rel="nofollow noopener noreferrer">
                         Подробнее
                       </span>
                     </p>
@@ -196,7 +179,7 @@ class Footer extends React.Component {
                       target="_blank"
                       rel="nofollow noopener noreferrer"
                     >
-                      {" "}
+                      {' '}
                     </a>
                     <a
                       className="footer-market__social-media footer-market__social-media_resource_vk link"
@@ -205,7 +188,7 @@ class Footer extends React.Component {
                       target="_blank"
                       rel="nofollow noopener noreferrer"
                     >
-                      {" "}
+                      {' '}
                     </a>
                     <a
                       className="footer-market__social-media footer-market__social-media_resource_instagram link"
@@ -214,7 +197,7 @@ class Footer extends React.Component {
                       target="_blank"
                       rel="nofollow noopener noreferrer"
                     >
-                      {" "}
+                      {' '}
                     </a>
                   </div>
                 </div>
@@ -246,10 +229,7 @@ class Footer extends React.Component {
           </div>
           <div className="copyright">
             © 2018  ООО «
-            <a
-              className="link copyright__link"
-              href="https://market.yandex.by/"
-            >
+            <a className="link copyright__link" href="https://market.yandex.by/">
               Яндекс.Маркет
             </a>
             »
@@ -257,8 +237,8 @@ class Footer extends React.Component {
         </div>
         {/* </noindex> */}
       </div>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer
