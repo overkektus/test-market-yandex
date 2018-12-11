@@ -1,16 +1,39 @@
-import React from "react";
+import React from 'react'
+import { Button, Input, Checkbox, Select, Radio } from 'antd'
+
+const { Option } = Select
+const { OptGroup } = Select
+
+const tailManufactures = 'Alienware,Eizo,Lenovo,MSI'.split(',')
+
+const hotManufactures = 'Acer,AOC,ASUS,BenQ,DELL,HP,Iiyama,LG,NEC,Phillips,Samsung,Viewsonic'.split(
+  ',',
+)
+
+const manufactures = [...hotManufactures, ...tailManufactures].sort()
+
+const radioStyle = { display: 'block', height: '30px', lineHeight: '30px' }
+
+const groupedManufactures = manufactures.reduce((accumulator, item) => {
+  const litera = item[0]
+  const list = accumulator[litera] || []
+  list.push(item)
+  accumulator[litera] = list
+  return accumulator
+}, {})
+
+const deliveries = {
+  with: 'С доставкой',
+  without: 'Самовывоз',
+  any: 'Любой'
+}
 
 class SearchLayout extends React.Component {
   render() {
     return (
       <div className="search-layout">
         <div>
-          <div
-            className="_18Ke-OpxeG"
-            data-d49f65c5="true"
-            data-reactroot
-            data-reactid={1}
-          >
+          <div className="_18Ke-OpxeG" data-d49f65c5="true" data-reactroot data-reactid={1}>
             <div className="uSBwpmLzLQ" data-e8e9edc5="true" data-reactid={2}>
               <div className="_1dg-mVVfwq" data-reactid={3}>
                 <div
@@ -19,11 +42,7 @@ class SearchLayout extends React.Component {
                   data-reactid={4}
                 >
                   <div data-f80b03eb="true" data-reactid={5}>
-                    <div
-                      className="_2Uen9ecS3a"
-                      data-9c5c5c8b="true"
-                      data-reactid={6}
-                    >
+                    <div className="_2Uen9ecS3a" data-9c5c5c8b="true" data-reactid={6}>
                       <span className="_3xtMbW8XL4" data-reactid={7}>
                         Магазины на карте
                       </span>
@@ -49,30 +68,14 @@ class SearchLayout extends React.Component {
                 </div>
               </div>
               <div className="_1dg-mVVfwq" data-reactid={12}>
-                <div
-                  className="SMIUZQVy8Y"
-                  data-e66a5985="true"
-                  data-reactid={13}
-                >
-                  <div
-                    className="_2Uen9ecS3a"
-                    data-9c5c5c8b="true"
-                    data-reactid={14}
-                  >
+                <div className="SMIUZQVy8Y" data-e66a5985="true" data-reactid={13}>
+                  <div className="_2Uen9ecS3a" data-9c5c5c8b="true" data-reactid={14}>
                     <span className="_3xtMbW8XL4" data-reactid={15}>
                       Категории
                     </span>
                   </div>
-                  <ul
-                    className="_2BLXswkhGO"
-                    data-e66a5985="true"
-                    data-reactid={16}
-                  >
-                    <li
-                      className="_2HihpwObsk"
-                      data-e66a5985="true"
-                      data-reactid={17}
-                    >
+                  <ul className="_2BLXswkhGO" data-e66a5985="true" data-reactid={16}>
+                    <li className="_2HihpwObsk" data-e66a5985="true" data-reactid={17}>
                       <a
                         className="_38YjhiFMWW"
                         href="https://market.yandex.by/catalog/54425/list?onstock=0&deliveryincluded=0&local-offers-first=0&text=%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D1%8B&cvredirect=3&track=srch_ddl"
@@ -83,16 +86,8 @@ class SearchLayout extends React.Component {
                           Компьютерная техника
                         </span>
                       </a>
-                      <ul
-                        className="_2BLXswkhGO"
-                        data-e66a5985="true"
-                        data-reactid={20}
-                      >
-                        <li
-                          className="_2HihpwObsk"
-                          data-e66a5985="true"
-                          data-reactid={21}
-                        >
+                      <ul className="_2BLXswkhGO" data-e66a5985="true" data-reactid={20}>
+                        <li className="_2HihpwObsk" data-e66a5985="true" data-reactid={21}>
                           <a
                             className="_38YjhiFMWW"
                             href="https://market.yandex.by/catalog/58486/list?onstock=0&deliveryincluded=0&local-offers-first=0&text=%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D1%8B&cvredirect=3&track=srch_ddl"
@@ -103,11 +98,7 @@ class SearchLayout extends React.Component {
                               Периферийные устройства компьютера
                             </span>
                           </a>
-                          <ul
-                            className="_2BLXswkhGO"
-                            data-e66a5985="true"
-                            data-reactid={24}
-                          >
+                          <ul className="_2BLXswkhGO" data-e66a5985="true" data-reactid={24}>
                             <li
                               className="_2HihpwObsk _3-af5SeCJi"
                               data-e66a5985="true"
@@ -129,11 +120,7 @@ class SearchLayout extends React.Component {
                       </ul>
                     </li>
                   </ul>
-                  <span
-                    className="_2BLXswkhGO _3-af5SeCJi"
-                    data-e66a5985="true"
-                    data-reactid={28}
-                  >
+                  <span className="_2BLXswkhGO _3-af5SeCJi" data-e66a5985="true" data-reactid={28}>
                     <a
                       className="link link_theme_normal"
                       href="https://market.yandex.by/search?text=%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D1%8B&cvredirect=0&track=redirbartree"
@@ -146,35 +133,15 @@ class SearchLayout extends React.Component {
                 </div>
               </div>
               <div className="_1dg-mVVfwq" data-reactid={31}>
-                <div
-                  className="_1vMoBTNhsM"
-                  data-6d8f6c05="true"
-                  data-reactid={32}
-                >
-                  <div
-                    className="_2Uen9ecS3a"
-                    data-9c5c5c8b="true"
-                    data-reactid={33}
-                  />
+                <div className="_1vMoBTNhsM" data-6d8f6c05="true" data-reactid={32}>
+                  <div className="_2Uen9ecS3a" data-9c5c5c8b="true" data-reactid={33} />
                   <div className="_178jz2CyDL" data-reactid={34}>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={35}
-                    >
-                      <fieldset
-                        className="_38PayafmjD"
-                        data-4b88e4e5="true"
-                        data-reactid={36}
-                      >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={35}>
+                      <fieldset className="_38PayafmjD" data-4b88e4e5="true" data-reactid={36}>
                         <legend className="babsHy47c5" data-reactid={37}>
                           Цена, б.p.
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={38}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={38}>
                           <ul className="lih4lXS8EN" data-reactid={39}>
                             <li className="_3E2Wzu8o3H" data-reactid={40}>
                               <p
@@ -183,29 +150,7 @@ class SearchLayout extends React.Component {
                                 data-214865aa="true"
                                 data-reactid={41}
                               >
-                                <input
-                                  type="text"
-                                  className="_2yK7W3SWQ- _1d02bPcWht"
-                                  id="glpricefrom"
-                                  name="\u0426\u0435\u043D\u0430 \u043E\u0442"
-                                  placeholder="139,10"
-                                  defaultValue
-                                  data-reactid={42}
-                                />
-                                <label
-                                  aria-label="\u0426\u0435\u043D\u0430 \u043E\u0442"
-                                  className="YrDvFUmSWM"
-                                  htmlFor="glpricefrom"
-                                  data-reactid={43}
-                                >
-                                  от
-                                </label>
-                                <button
-                                  aria-label="\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u043F\u043E\u043B\u0435 \u0426\u0435\u043D\u0430 \u043E\u0442"
-                                  className="_3DiWbCQOB8"
-                                  disabled
-                                  data-reactid={44}
-                                />
+                                <Input addonBefore="от" />
                               </p>
                             </li>
                             <li className="_3E2Wzu8o3H" data-reactid={45}>
@@ -215,69 +160,22 @@ class SearchLayout extends React.Component {
                                 data-214865aa="true"
                                 data-reactid={46}
                               >
-                                <input
-                                  type="text"
-                                  className="_2yK7W3SWQ- _1f2usTwyAs"
-                                  id="glpriceto"
-                                  name="\u0426\u0435\u043D\u0430 \u0434\u043E"
-                                  placeholder="13 312,31"
-                                  defaultValue
-                                  data-reactid={47}
-                                />
-                                <label
-                                  aria-label="\u0426\u0435\u043D\u0430 \u0434\u043E"
-                                  className="YrDvFUmSWM"
-                                  htmlFor="glpriceto"
-                                  data-reactid={48}
-                                >
-                                  до
-                                </label>
-                                <button
-                                  aria-label="\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u043F\u043E\u043B\u0435 \u0426\u0435\u043D\u0430 \u0434\u043E"
-                                  className="_3DiWbCQOB8"
-                                  disabled
-                                  data-reactid={49}
-                                />
+                                <Input addonBefore="до" />
                               </p>
                             </li>
                           </ul>
                         </div>
-                        <div
-                          className="_2vOXvqbQ4f"
-                          data-bccec8a7="true"
-                          data-reactid={50}
-                        >
-                          <label
-                            className="_1e7iX1B2oW"
-                            htmlFor="delivery-included-filter"
-                            data-9d4e0d85="true"
-                            data-reactid={51}
-                          >
-                            <input
-                              type="checkbox"
-                              className="_3Uz6PcbAtW"
-                              tabIndex={0}
-                              name="delivery-included-filter"
-                              id="delivery-included-filter"
-                              data-reactid={52}
-                              defaultValue="on"
-                            />
-                            <div className="LhMupC0dLR" data-reactid={53}>
-                              <span className="_3RpJHrYdd2" data-reactid={54}>
-                                Цена с учётом доставки
-                              </span>
-                            </div>
-                          </label>
+                        <div className="_2vOXvqbQ4f" data-bccec8a7="true" data-reactid={50}>
+                          <Checkbox>Цена с учётом доставки</Checkbox>
                         </div>
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={55} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={57}
-                    >
-                      <fieldset
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={57}>
+                      <Checkbox>
+                        <b>В продаже</b>
+                      </Checkbox>
+                      {/* <fieldset
                         data-autotest-id="onstock"
                         className="n6SnxORUP9"
                         data-6df2085="true"
@@ -286,11 +184,7 @@ class SearchLayout extends React.Component {
                         <legend className="_3lIkhO0snX" data-reactid={59}>
                           В продаже
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={60}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={60}>
                           <label
                             className="_1e7iX1B2oW"
                             htmlFor="onstock"
@@ -307,23 +201,16 @@ class SearchLayout extends React.Component {
                               defaultValue="on"
                             />
                             <div className="LhMupC0dLR" data-reactid={63}>
-                              <span
-                                className="NVoaOvqe58 _1gAodJU0Dw"
-                                data-reactid={64}
-                              >
+                              <span className="NVoaOvqe58 _1gAodJU0Dw" data-reactid={64}>
                                 В продаже
                               </span>
                             </div>
                           </label>
                         </div>
-                      </fieldset>
+                      </fieldset> */}
                       <div className="_3vgfOcGSnv" data-reactid={65} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={67}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={67}>
                       <fieldset
                         data-autotest-id={7893318}
                         className="_3M70uokkTS"
@@ -333,573 +220,61 @@ class SearchLayout extends React.Component {
                         <legend className="ShXb4FpS5R" data-reactid={69}>
                           Производитель
                         </legend>
-                        <ul
-                          className="_2y67xS5HuR"
-                          data-da31bdc5="true"
-                          data-reactid={70}
+                        <Select
+                          mode="multiple"
+                          style={{ width: '100%' }}
+                          placeholder="Please select"
                         >
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={71}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={72}
+                          {Object.entries(groupedManufactures).map(([litera, list]) => (
+                            <OptGroup key={litera} label={litera}>
+                              {list.map((item) => (
+                                <Option value={item}>{item}</Option>
+                              ))}
+                            </OptGroup>
+                          ))}
+                          {/* {alphabet.map((lit) => {
+                          
+                        })}
+                          {manufactures.map((item) => (
+                            <Option value={item}>{item}</Option>
+                          ))} */}
+                        </Select>
+                        <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={70}>
+                          {manufactures.map((item) => (
+                            <li
+                              key={item}
+                              className="_1-l0XiE_ze"
+                              data-da31bdc5="true"
+                              data-reactid={71}
                             >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A267101"
-                                data-858a378a="true"
-                                data-reactid={73}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_267101"
-                                  data-9d4e0d85="true"
-                                  data-reactid={74}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C Acer"
-                                    id="7893318_267101"
-                                    data-reactid={75}
-                                    defaultValue="on"
-                                  />
-                                  <div className="LhMupC0dLR" data-reactid={76}>
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={77}
-                                    >
-                                      Acer
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={78}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={79}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A431391"
-                                data-858a378a="true"
-                                data-reactid={80}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_431391"
-                                  data-9d4e0d85="true"
-                                  data-reactid={81}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C AOC"
-                                    id="7893318_431391"
-                                    data-reactid={82}
-                                    defaultValue="on"
-                                  />
-                                  <div className="LhMupC0dLR" data-reactid={83}>
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={84}
-                                    >
-                                      AOC
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={85}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={86}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A152863"
-                                data-858a378a="true"
-                                data-reactid={87}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_152863"
-                                  data-9d4e0d85="true"
-                                  data-reactid={88}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C ASUS"
-                                    id="7893318_152863"
-                                    data-reactid={89}
-                                    defaultValue="on"
-                                  />
-                                  <div className="LhMupC0dLR" data-reactid={90}>
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={91}
-                                    >
-                                      ASUS
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={92}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={93}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A241228"
-                                data-858a378a="true"
-                                data-reactid={94}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_241228"
-                                  data-9d4e0d85="true"
-                                  data-reactid={95}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C BenQ"
-                                    id="7893318_241228"
-                                    data-reactid={96}
-                                    defaultValue="on"
-                                  />
-                                  <div className="LhMupC0dLR" data-reactid={97}>
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={98}
-                                    >
-                                      BenQ
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={99}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={100}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A153080"
-                                data-858a378a="true"
-                                data-reactid={101}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_153080"
-                                  data-9d4e0d85="true"
-                                  data-reactid={102}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C DELL"
-                                    id="7893318_153080"
-                                    data-reactid={103}
-                                    defaultValue="on"
-                                  />
-                                  <div
-                                    className="LhMupC0dLR"
-                                    data-reactid={104}
-                                  >
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={105}
-                                    >
-                                      DELL
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={106}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={107}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A152722"
-                                data-858a378a="true"
-                                data-reactid={108}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_152722"
-                                  data-9d4e0d85="true"
-                                  data-reactid={109}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C HP"
-                                    id="7893318_152722"
-                                    data-reactid={110}
-                                    defaultValue="on"
-                                  />
-                                  <div
-                                    className="LhMupC0dLR"
-                                    data-reactid={111}
-                                  >
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={112}
-                                    >
-                                      HP
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={113}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={114}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A152865"
-                                data-858a378a="true"
-                                data-reactid={115}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_152865"
-                                  data-9d4e0d85="true"
-                                  data-reactid={116}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C Iiyama"
-                                    id="7893318_152865"
-                                    data-reactid={117}
-                                    defaultValue="on"
-                                  />
-                                  <div
-                                    className="LhMupC0dLR"
-                                    data-reactid={118}
-                                  >
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={119}
-                                    >
-                                      Iiyama
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={120}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={121}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A153074"
-                                data-858a378a="true"
-                                data-reactid={122}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_153074"
-                                  data-9d4e0d85="true"
-                                  data-reactid={123}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C LG"
-                                    id="7893318_153074"
-                                    data-reactid={124}
-                                    defaultValue="on"
-                                  />
-                                  <div
-                                    className="LhMupC0dLR"
-                                    data-reactid={125}
-                                  >
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={126}
-                                    >
-                                      LG
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={127}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={128}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A153117"
-                                data-858a378a="true"
-                                data-reactid={129}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_153117"
-                                  data-9d4e0d85="true"
-                                  data-reactid={130}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C NEC"
-                                    id="7893318_153117"
-                                    data-reactid={131}
-                                    defaultValue="on"
-                                  />
-                                  <div
-                                    className="LhMupC0dLR"
-                                    data-reactid={132}
-                                  >
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={133}
-                                    >
-                                      NEC
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={134}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={135}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A152870"
-                                data-858a378a="true"
-                                data-reactid={136}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_152870"
-                                  data-9d4e0d85="true"
-                                  data-reactid={137}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C Philips"
-                                    id="7893318_152870"
-                                    data-reactid={138}
-                                    defaultValue="on"
-                                  />
-                                  <div
-                                    className="LhMupC0dLR"
-                                    data-reactid={139}
-                                  >
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={140}
-                                    >
-                                      Philips
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={141}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={142}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A153061"
-                                data-858a378a="true"
-                                data-reactid={143}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_153061"
-                                  data-9d4e0d85="true"
-                                  data-reactid={144}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C Samsung"
-                                    id="7893318_153061"
-                                    data-reactid={145}
-                                    defaultValue="on"
-                                  />
-                                  <div
-                                    className="LhMupC0dLR"
-                                    data-reactid={146}
-                                  >
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={147}
-                                    >
-                                      Samsung
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={148}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={149}
-                            >
-                              <a
-                                className="_2RDCAZB4Gk"
-                                href="https://market.yandex.by/catalog/54539/list?hid=91052&glfilter=7893318%3A152807"
-                                data-858a378a="true"
-                                data-reactid={150}
-                              >
-                                <label
-                                  className="_1e7iX1B2oW"
-                                  htmlFor="7893318_152807"
-                                  data-9d4e0d85="true"
-                                  data-reactid={151}
-                                >
-                                  <input
-                                    type="checkbox"
-                                    className="_3Uz6PcbAtW"
-                                    tabIndex={0}
-                                    name="\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0438\u0442\u0435\u043B\u044C Viewsonic"
-                                    id="7893318_152807"
-                                    data-reactid={152}
-                                    defaultValue="on"
-                                  />
-                                  <div
-                                    className="LhMupC0dLR"
-                                    data-reactid={153}
-                                  >
-                                    <span
-                                      className="NVoaOvqe58"
-                                      data-reactid={154}
-                                    >
-                                      Viewsonic
-                                    </span>
-                                  </div>
-                                </label>
-                              </a>
-                            </div>
-                          </li>
+                              <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={72}>
+                                <Checkbox>{item}</Checkbox>
+                              </div>
+                            </li>
+                          ))}
                         </ul>
-                        <footer
-                          className="_2XviVqx9xN"
-                          data-da31bdc5="true"
-                          data-reactid={155}
-                        >
-                          <a
-                            href="/"
-                            className="_2Wg9rE1HzR"
-                            data-reactid={156}
-                          >
+                        <footer className="_2XviVqx9xN" data-da31bdc5="true" data-reactid={155}>
+                          <a href="/" className="_2Wg9rE1HzR" data-reactid={156}>
                             Показать всё
                           </a>
                         </footer>
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={157} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={159}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={437}>
+                      <fieldset className="_2qWuY12N6f" data-779c2885="true" data-reactid={438}>
+                        <legend className="_1nAu9jHf6S" data-reactid={439}>
+                          Способ доставки
+                        </legend>
+                        {Object.entries(deliveries).map(([value, title]) => (
+                          <Radio key={value} value={value} style={radioStyle}>
+                            {title}
+                          </Radio>
+                        ))}
+                      </fieldset>
+                      <div className="_3vgfOcGSnv" data-reactid={459} />
+                    </div>
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={159}>
                       <fieldset
                         data-autotest-id="filter-promo-or-discount"
                         className="n6SnxORUP9"
@@ -909,11 +284,7 @@ class SearchLayout extends React.Component {
                         <legend className="_3lIkhO0snX" data-reactid={161}>
                           Скидки и акции
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={162}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={162}>
                           <label
                             className="_1e7iX1B2oW"
                             htmlFor="filter-promo-or-discount"
@@ -930,10 +301,7 @@ class SearchLayout extends React.Component {
                               defaultValue="on"
                             />
                             <div className="LhMupC0dLR" data-reactid={165}>
-                              <span
-                                className="NVoaOvqe58 _1gAodJU0Dw"
-                                data-reactid={166}
-                              >
+                              <span className="NVoaOvqe58 _1gAodJU0Dw" data-reactid={166}>
                                 Скидки и акции
                               </span>
                             </div>
@@ -942,11 +310,7 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={167} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={169}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={169}>
                       <fieldset
                         data-autotest-id={15153047}
                         className="_3M70uokkTS"
@@ -956,21 +320,9 @@ class SearchLayout extends React.Component {
                         <legend className="ShXb4FpS5R" data-reactid={171}>
                           Размер экрана
                         </legend>
-                        <ul
-                          className="_2y67xS5HuR"
-                          data-da31bdc5="true"
-                          data-reactid={172}
-                        >
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={173}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={174}
-                            >
+                        <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={172}>
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={173}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={174}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="15153047_15153069"
@@ -987,26 +339,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={177}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={178}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={178}>
                                     19.1"-22"
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={179}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={180}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={179}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={180}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="15153047_15153071"
@@ -1023,26 +364,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={183}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={184}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={184}>
                                     23.1"-24"
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={185}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={186}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={185}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={186}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="15153047_15153078"
@@ -1059,26 +389,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={189}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={190}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={190}>
                                     24.1"-27"
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={191}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={192}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={191}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={192}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="15153047_15153070"
@@ -1095,26 +414,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={195}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={196}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={196}>
                                     17.1"-19"
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={197}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={198}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={197}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={198}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="15153047_15153077"
@@ -1131,10 +439,7 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={201}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={202}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={202}>
                                     15.1"-17"
                                   </span>
                                 </div>
@@ -1142,27 +447,15 @@ class SearchLayout extends React.Component {
                             </div>
                           </li>
                         </ul>
-                        <footer
-                          className="_2XviVqx9xN"
-                          data-da31bdc5="true"
-                          data-reactid={203}
-                        >
-                          <a
-                            href="/"
-                            className="_2Wg9rE1HzR"
-                            data-reactid={204}
-                          >
+                        <footer className="_2XviVqx9xN" data-da31bdc5="true" data-reactid={203}>
+                          <a href="/" className="_2Wg9rE1HzR" data-reactid={204}>
                             Показать ещё 5
                           </a>
                         </footer>
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={205} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={207}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={207}>
                       <fieldset
                         data-autotest-id={4913586}
                         className="_3M70uokkTS"
@@ -1172,21 +465,9 @@ class SearchLayout extends React.Component {
                         <legend className="ShXb4FpS5R" data-reactid={209}>
                           Макс. разрешение
                         </legend>
-                        <ul
-                          className="_2y67xS5HuR"
-                          data-da31bdc5="true"
-                          data-reactid={210}
-                        >
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={211}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={212}
-                            >
+                        <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={210}>
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={211}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={212}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913586_12103913"
@@ -1203,26 +484,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={215}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={216}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={216}>
                                     1920x1080
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={217}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={218}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={217}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={218}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913586_12103903"
@@ -1239,26 +509,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={221}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={222}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={222}>
                                     1280x1024
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={223}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={224}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={223}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={224}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913586_12103918"
@@ -1275,26 +534,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={227}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={228}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={228}>
                                     2560x1440
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={229}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={230}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={229}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={230}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913586_12103912"
@@ -1311,26 +559,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={233}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={234}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={234}>
                                     1680x1050
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={235}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={236}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={235}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={236}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913586_12103921"
@@ -1347,10 +584,7 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={239}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={240}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={240}>
                                     3840x2160
                                   </span>
                                 </div>
@@ -1358,27 +592,15 @@ class SearchLayout extends React.Component {
                             </div>
                           </li>
                         </ul>
-                        <footer
-                          className="_2XviVqx9xN"
-                          data-da31bdc5="true"
-                          data-reactid={241}
-                        >
-                          <a
-                            href="/"
-                            className="_2Wg9rE1HzR"
-                            data-reactid={242}
-                          >
+                        <footer className="_2XviVqx9xN" data-da31bdc5="true" data-reactid={241}>
+                          <a href="/" className="_2Wg9rE1HzR" data-reactid={242}>
                             Показать всё
                           </a>
                         </footer>
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={243} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={245}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={245}>
                       <fieldset
                         data-autotest-id={4913588}
                         className="_3M70uokkTS"
@@ -1388,21 +610,9 @@ class SearchLayout extends React.Component {
                         <legend className="ShXb4FpS5R" data-reactid={247}>
                           Тип матрицы экрана
                         </legend>
-                        <ul
-                          className="_2y67xS5HuR"
-                          data-da31bdc5="true"
-                          data-reactid={248}
-                        >
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={249}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={250}
-                            >
+                        <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={248}>
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={249}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={250}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913588_12103947"
@@ -1419,26 +629,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={253}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={254}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={254}>
                                     TFT TN
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={255}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={256}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={255}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={256}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913588_12103938"
@@ -1455,26 +654,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={259}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={260}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={260}>
                                     TFT IPS
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={261}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={262}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={261}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={262}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913588_12103929"
@@ -1491,26 +679,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={265}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={266}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={266}>
                                     TFT *VA
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={267}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={268}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={267}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={268}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913588_12103932"
@@ -1527,26 +704,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={271}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={272}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={272}>
                                     TFT AH-IPS
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={273}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={274}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={273}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={274}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913588_12103939"
@@ -1563,26 +729,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={277}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={278}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={278}>
                                     TFT MVA
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={279}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={280}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={279}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={280}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913588_12103942"
@@ -1599,26 +754,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={283}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={284}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={284}>
                                     TFT PLS
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={285}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={286}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={285}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={286}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913588_12103930"
@@ -1635,10 +779,7 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={289}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={290}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={290}>
                                     TFT A-MVA
                                   </span>
                                 </div>
@@ -1646,27 +787,15 @@ class SearchLayout extends React.Component {
                             </div>
                           </li>
                         </ul>
-                        <footer
-                          className="_2XviVqx9xN"
-                          data-da31bdc5="true"
-                          data-reactid={291}
-                        >
-                          <a
-                            href="/"
-                            className="_2Wg9rE1HzR"
-                            data-reactid={292}
-                          >
+                        <footer className="_2XviVqx9xN" data-da31bdc5="true" data-reactid={291}>
+                          <a href="/" className="_2Wg9rE1HzR" data-reactid={292}>
                             Показать всё
                           </a>
                         </footer>
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={293} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={295}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={295}>
                       <fieldset
                         data-autotest-id={4913622}
                         className="_2ESDYRtKSQ"
@@ -1676,11 +805,7 @@ class SearchLayout extends React.Component {
                         <legend className="_6Ev7l7PxvV" data-reactid={297}>
                           Макс. частота обновления кадров, Гц
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={298}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={298}>
                           <ul className="_1DYevRkiWL" data-reactid={299}>
                             <li className="_1W_iTekL7P" data-reactid={300}>
                               <p
@@ -1751,11 +876,7 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={310} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={312}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={312}>
                       <fieldset
                         data-autotest-id={4913592}
                         className="_3M70uokkTS"
@@ -1765,21 +886,9 @@ class SearchLayout extends React.Component {
                         <legend className="ShXb4FpS5R" data-reactid={314}>
                           Соотношение сторон
                         </legend>
-                        <ul
-                          className="_2y67xS5HuR"
-                          data-da31bdc5="true"
-                          data-reactid={315}
-                        >
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={316}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={317}
-                            >
+                        <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={315}>
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={316}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={317}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913592_12103953"
@@ -1796,26 +905,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={320}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={321}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={321}>
                                     16:9
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={322}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={323}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={322}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={323}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913592_12103952"
@@ -1832,26 +930,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={326}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={327}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={327}>
                                     16:10
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={328}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={329}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={328}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={329}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913592_12103956"
@@ -1868,26 +955,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={332}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={333}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={333}>
                                     5:4
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={334}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={335}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={334}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={335}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913592_12103955"
@@ -1904,26 +980,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={338}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={339}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={339}>
                                     4:3
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={340}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={341}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={340}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={341}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="4913592_12103954"
@@ -1940,10 +1005,7 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={344}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={345}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={345}>
                                     21:9
                                   </span>
                                 </div>
@@ -1951,27 +1013,15 @@ class SearchLayout extends React.Component {
                             </div>
                           </li>
                         </ul>
-                        <footer
-                          className="_2XviVqx9xN"
-                          data-da31bdc5="true"
-                          data-reactid={346}
-                        >
-                          <a
-                            href="/"
-                            className="_2Wg9rE1HzR"
-                            data-reactid={347}
-                          >
+                        <footer className="_2XviVqx9xN" data-da31bdc5="true" data-reactid={346}>
+                          <a href="/" className="_2Wg9rE1HzR" data-reactid={347}>
                             Показать ещё 2
                           </a>
                         </footer>
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={348} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={350}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={350}>
                       <fieldset
                         data-autotest-id={4913629}
                         className="n6SnxORUP9"
@@ -1981,11 +1031,7 @@ class SearchLayout extends React.Component {
                         <legend className="_3lIkhO0snX" data-reactid={352}>
                           Вход HDMI
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={353}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={353}>
                           <label
                             className="_1e7iX1B2oW"
                             htmlFor={4913629}
@@ -2002,10 +1048,7 @@ class SearchLayout extends React.Component {
                               defaultValue="on"
                             />
                             <div className="LhMupC0dLR" data-reactid={356}>
-                              <span
-                                className="NVoaOvqe58 _1gAodJU0Dw"
-                                data-reactid={357}
-                              >
+                              <span className="NVoaOvqe58 _1gAodJU0Dw" data-reactid={357}>
                                 Вход HDMI
                               </span>
                             </div>
@@ -2014,11 +1057,7 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={358} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={360}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={360}>
                       <fieldset
                         data-autotest-id={4913597}
                         className="_2ESDYRtKSQ"
@@ -2028,11 +1067,7 @@ class SearchLayout extends React.Component {
                         <legend className="_6Ev7l7PxvV" data-reactid={362}>
                           Время отклика, мс
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={363}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={363}>
                           <ul className="_1DYevRkiWL" data-reactid={364}>
                             <li className="_1W_iTekL7P" data-reactid={365}>
                               <p
@@ -2103,11 +1138,7 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={375} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={377}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={377}>
                       <fieldset
                         data-autotest-id={14211207}
                         className="n6SnxORUP9"
@@ -2117,11 +1148,7 @@ class SearchLayout extends React.Component {
                         <legend className="_3lIkhO0snX" data-reactid={379}>
                           Игровой монитор
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={380}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={380}>
                           <label
                             className="_1e7iX1B2oW"
                             htmlFor={14211207}
@@ -2138,10 +1165,7 @@ class SearchLayout extends React.Component {
                               defaultValue="on"
                             />
                             <div className="LhMupC0dLR" data-reactid={383}>
-                              <span
-                                className="NVoaOvqe58 _1gAodJU0Dw"
-                                data-reactid={384}
-                              >
+                              <span className="NVoaOvqe58 _1gAodJU0Dw" data-reactid={384}>
                                 Игровой монитор
                               </span>
                             </div>
@@ -2150,11 +1174,7 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={385} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={387}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={387}>
                       <fieldset
                         data-autotest-id="manufacturer_warranty"
                         className="n6SnxORUP9"
@@ -2164,11 +1184,7 @@ class SearchLayout extends React.Component {
                         <legend className="_3lIkhO0snX" data-reactid={389}>
                           Гарантия производителя
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={390}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={390}>
                           <label
                             className="_1e7iX1B2oW"
                             htmlFor="manufacturer_warranty"
@@ -2185,10 +1201,7 @@ class SearchLayout extends React.Component {
                               defaultValue="on"
                             />
                             <div className="LhMupC0dLR" data-reactid={393}>
-                              <span
-                                className="NVoaOvqe58 _1gAodJU0Dw"
-                                data-reactid={394}
-                              >
+                              <span className="NVoaOvqe58 _1gAodJU0Dw" data-reactid={394}>
                                 Гарантия производителя
                               </span>
                             </div>
@@ -2197,30 +1210,14 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={395} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={397}
-                    >
-                      <fieldset
-                        className="_2uSu7TQsMO"
-                        data-b8226845="true"
-                        data-reactid={398}
-                      >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={397}>
+                      <fieldset className="_2uSu7TQsMO" data-b8226845="true" data-reactid={398}>
                         <legend className="_2Ff0sb526M" data-reactid={399}>
                           Рейтинг магазина
                         </legend>
                         <ul className="_3HH8SRnp4A" data-reactid={400}>
-                          <li
-                            className="_2gBbJONjvk"
-                            data-b8226845="true"
-                            data-reactid={401}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={402}
-                            >
+                          <li className="_2gBbJONjvk" data-b8226845="true" data-reactid={401}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={402}>
                               <label
                                 className="_2qeJ9otxLk"
                                 htmlFor="qrfrom_3"
@@ -2237,33 +1234,16 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="_2zRi9ex2Rl" data-reactid={405}>
-                                  <div
-                                    className="_1FbxpCIr0K XNE5y9RjQT"
-                                    data-reactid={406}
-                                  >
-                                    <div
-                                      className="_27kJ3ORjYr"
-                                      data-reactid={407}
-                                    />
-                                    <div
-                                      className="_308ugYmRJI"
-                                      data-reactid={408}
-                                    />
+                                  <div className="_1FbxpCIr0K XNE5y9RjQT" data-reactid={406}>
+                                    <div className="_27kJ3ORjYr" data-reactid={407} />
+                                    <div className="_308ugYmRJI" data-reactid={408} />
                                   </div>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_2gBbJONjvk"
-                            data-b8226845="true"
-                            data-reactid={409}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={410}
-                            >
+                          <li className="_2gBbJONjvk" data-b8226845="true" data-reactid={409}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={410}>
                               <label
                                 className="_2qeJ9otxLk"
                                 htmlFor="qrfrom_4"
@@ -2280,33 +1260,16 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="_2zRi9ex2Rl" data-reactid={413}>
-                                  <div
-                                    className="_1FbxpCIr0K _3RxxCpjiKz"
-                                    data-reactid={414}
-                                  >
-                                    <div
-                                      className="_27kJ3ORjYr"
-                                      data-reactid={415}
-                                    />
-                                    <div
-                                      className="_308ugYmRJI"
-                                      data-reactid={416}
-                                    />
+                                  <div className="_1FbxpCIr0K _3RxxCpjiKz" data-reactid={414}>
+                                    <div className="_27kJ3ORjYr" data-reactid={415} />
+                                    <div className="_308ugYmRJI" data-reactid={416} />
                                   </div>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_2gBbJONjvk"
-                            data-b8226845="true"
-                            data-reactid={417}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={418}
-                            >
+                          <li className="_2gBbJONjvk" data-b8226845="true" data-reactid={417}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={418}>
                               <label
                                 className="_2qeJ9otxLk"
                                 htmlFor="qrfrom_-1"
@@ -2324,18 +1287,9 @@ class SearchLayout extends React.Component {
                                   defaultChecked
                                 />
                                 <div className="_2zRi9ex2Rl" data-reactid={421}>
-                                  <div
-                                    className="_1FbxpCIr0K _3A2H6kwJcC"
-                                    data-reactid={422}
-                                  >
-                                    <div
-                                      className="_27kJ3ORjYr"
-                                      data-reactid={423}
-                                    />
-                                    <div
-                                      className="_308ugYmRJI"
-                                      data-reactid={424}
-                                    />
+                                  <div className="_1FbxpCIr0K _3A2H6kwJcC" data-reactid={422}>
+                                    <div className="_27kJ3ORjYr" data-reactid={423} />
+                                    <div className="_308ugYmRJI" data-reactid={424} />
                                   </div>
                                 </div>
                               </label>
@@ -2345,11 +1299,7 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={425} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={427}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={427}>
                       <fieldset
                         data-autotest-id="free-delivery"
                         className="n6SnxORUP9"
@@ -2359,11 +1309,7 @@ class SearchLayout extends React.Component {
                         <legend className="_3lIkhO0snX" data-reactid={429}>
                           Бесплатная доставка курьером
                         </legend>
-                        <div
-                          className="_16hsbhrgAf"
-                          data-17df2f2a="true"
-                          data-reactid={430}
-                        >
+                        <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={430}>
                           <label
                             className="_1e7iX1B2oW"
                             htmlFor="free-delivery"
@@ -2380,10 +1326,7 @@ class SearchLayout extends React.Component {
                               defaultValue="on"
                             />
                             <div className="LhMupC0dLR" data-reactid={433}>
-                              <span
-                                className="NVoaOvqe58 _1gAodJU0Dw"
-                                data-reactid={434}
-                              >
+                              <span className="NVoaOvqe58 _1gAodJU0Dw" data-reactid={434}>
                                 Бесплатная доставка курьером
                               </span>
                             </div>
@@ -2392,138 +1335,7 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={435} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={437}
-                    >
-                      <fieldset
-                        className="_2qWuY12N6f"
-                        data-779c2885="true"
-                        data-reactid={438}
-                      >
-                        <legend className="_1nAu9jHf6S" data-reactid={439}>
-                          Способ доставки
-                        </legend>
-                        <ul className="_1rFLRYsqQb" data-reactid={440}>
-                          <li
-                            className="_3YKtoPKZka"
-                            data-779c2885="true"
-                            data-reactid={441}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={442}
-                            >
-                              <label
-                                className="_2qeJ9otxLk"
-                                htmlFor="offer-shipping_delivery"
-                                data-5b15bb05="true"
-                                data-reactid={443}
-                              >
-                                <input
-                                  type="radio"
-                                  className="_375lDzZBQV"
-                                  tabIndex={0}
-                                  name="\u0421\u043F\u043E\u0441\u043E\u0431 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438"
-                                  id="offer-shipping_delivery"
-                                  data-reactid={444}
-                                  defaultValue="on"
-                                />
-                                <div className="_2zRi9ex2Rl" data-reactid={445}>
-                                  <span
-                                    className="rCLpHJFFlJ"
-                                    data-reactid={446}
-                                  >
-                                    С доставкой
-                                  </span>
-                                </div>
-                              </label>
-                            </div>
-                          </li>
-                          <li
-                            className="_3YKtoPKZka"
-                            data-779c2885="true"
-                            data-reactid={447}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={448}
-                            >
-                              <label
-                                className="_2qeJ9otxLk"
-                                htmlFor="offer-shipping_pickup"
-                                data-5b15bb05="true"
-                                data-reactid={449}
-                              >
-                                <input
-                                  type="radio"
-                                  className="_375lDzZBQV"
-                                  tabIndex={0}
-                                  name="\u0421\u043F\u043E\u0441\u043E\u0431 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438"
-                                  id="offer-shipping_pickup"
-                                  data-reactid={450}
-                                  defaultValue="on"
-                                />
-                                <div className="_2zRi9ex2Rl" data-reactid={451}>
-                                  <span
-                                    className="rCLpHJFFlJ"
-                                    data-reactid={452}
-                                  >
-                                    Самовывоз
-                                  </span>
-                                </div>
-                              </label>
-                            </div>
-                          </li>
-                          <li
-                            className="_3YKtoPKZka"
-                            data-779c2885="true"
-                            data-reactid={453}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={454}
-                            >
-                              <label
-                                className="_2qeJ9otxLk"
-                                htmlFor="offer-shipping_-1"
-                                data-5b15bb05="true"
-                                data-reactid={455}
-                              >
-                                <input
-                                  type="radio"
-                                  className="_375lDzZBQV"
-                                  tabIndex={0}
-                                  name="\u0421\u043F\u043E\u0441\u043E\u0431 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438"
-                                  id="offer-shipping_-1"
-                                  data-reactid={456}
-                                  defaultValue="on"
-                                  defaultChecked
-                                />
-                                <div className="_2zRi9ex2Rl" data-reactid={457}>
-                                  <span
-                                    className="rCLpHJFFlJ"
-                                    data-reactid={458}
-                                  >
-                                    Любой
-                                  </span>
-                                </div>
-                              </label>
-                            </div>
-                          </li>
-                        </ul>
-                      </fieldset>
-                      <div className="_3vgfOcGSnv" data-reactid={459} />
-                    </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={461}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={461}>
                       <fieldset
                         data-autotest-id="home_region"
                         className="_3M70uokkTS"
@@ -2533,21 +1345,9 @@ class SearchLayout extends React.Component {
                         <legend className="ShXb4FpS5R" data-reactid={463}>
                           Страна продавца
                         </legend>
-                        <ul
-                          className="_2y67xS5HuR"
-                          data-da31bdc5="true"
-                          data-reactid={464}
-                        >
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={465}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={466}
-                            >
+                        <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={464}>
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={465}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={466}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="home_region_149"
@@ -2564,26 +1364,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={469}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={470}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={470}>
                                     Беларусь
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={471}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={472}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={471}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={472}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="home_region_225"
@@ -2600,10 +1389,7 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={475}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={476}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={476}>
                                     Россия
                                   </span>
                                 </div>
@@ -2614,30 +1400,14 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={477} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={479}
-                    >
-                      <fieldset
-                        className="_3F0KYdeicF"
-                        data-d5801345="true"
-                        data-reactid={480}
-                      >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={479}>
+                      <fieldset className="_3F0KYdeicF" data-d5801345="true" data-reactid={480}>
                         <legend className="_2505xdN31K" data-reactid={481}>
                           Срок доставки курьером
                         </legend>
                         <ul className="_1Oc123Sp0Q" data-reactid={482}>
-                          <li
-                            className="_2TCO5ZPQgp"
-                            data-d5801345="true"
-                            data-reactid={483}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={484}
-                            >
+                          <li className="_2TCO5ZPQgp" data-d5801345="true" data-reactid={483}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={484}>
                               <label
                                 className="_2qeJ9otxLk"
                                 htmlFor="delivery-interval_0"
@@ -2654,26 +1424,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="_2zRi9ex2Rl" data-reactid={487}>
-                                  <span
-                                    className="rCLpHJFFlJ"
-                                    data-reactid={488}
-                                  >
+                                  <span className="rCLpHJFFlJ" data-reactid={488}>
                                     Сегодня
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_2TCO5ZPQgp"
-                            data-d5801345="true"
-                            data-reactid={489}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={490}
-                            >
+                          <li className="_2TCO5ZPQgp" data-d5801345="true" data-reactid={489}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={490}>
                               <label
                                 className="_2qeJ9otxLk"
                                 htmlFor="delivery-interval_1"
@@ -2690,26 +1449,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="_2zRi9ex2Rl" data-reactid={493}>
-                                  <span
-                                    className="rCLpHJFFlJ"
-                                    data-reactid={494}
-                                  >
+                                  <span className="rCLpHJFFlJ" data-reactid={494}>
                                     Завтра
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_2TCO5ZPQgp"
-                            data-d5801345="true"
-                            data-reactid={495}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={496}
-                            >
+                          <li className="_2TCO5ZPQgp" data-d5801345="true" data-reactid={495}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={496}>
                               <label
                                 className="_2qeJ9otxLk"
                                 htmlFor="delivery-interval_5"
@@ -2726,26 +1474,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="_2zRi9ex2Rl" data-reactid={499}>
-                                  <span
-                                    className="rCLpHJFFlJ"
-                                    data-reactid={500}
-                                  >
+                                  <span className="rCLpHJFFlJ" data-reactid={500}>
                                     До 5 дней
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_2TCO5ZPQgp"
-                            data-d5801345="true"
-                            data-reactid={501}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={502}
-                            >
+                          <li className="_2TCO5ZPQgp" data-d5801345="true" data-reactid={501}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={502}>
                               <label
                                 className="_2qeJ9otxLk"
                                 htmlFor="delivery-interval_-1"
@@ -2763,10 +1500,7 @@ class SearchLayout extends React.Component {
                                   defaultChecked
                                 />
                                 <div className="_2zRi9ex2Rl" data-reactid={505}>
-                                  <span
-                                    className="rCLpHJFFlJ"
-                                    data-reactid={506}
-                                  >
+                                  <span className="rCLpHJFFlJ" data-reactid={506}>
                                     Любой
                                   </span>
                                 </div>
@@ -2777,11 +1511,7 @@ class SearchLayout extends React.Component {
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={507} />
                     </div>
-                    <div
-                      className="_2Hue1bCg-N"
-                      data-f3c53385="true"
-                      data-reactid={509}
-                    >
+                    <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={509}>
                       <fieldset
                         data-autotest-id="fesh"
                         className="_3M70uokkTS"
@@ -2791,21 +1521,9 @@ class SearchLayout extends React.Component {
                         <legend className="ShXb4FpS5R" data-reactid={511}>
                           Магазины
                         </legend>
-                        <ul
-                          className="_2y67xS5HuR"
-                          data-da31bdc5="true"
-                          data-reactid={512}
-                        >
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={513}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={514}
-                            >
+                        <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={512}>
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={513}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={514}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_38535"
@@ -2822,26 +1540,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={517}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={518}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={518}>
                                     21vek.by
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={519}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={520}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={519}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={520}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_56478"
@@ -2858,26 +1565,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={523}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={524}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={524}>
                                     AMD.by
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={525}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={526}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={525}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={526}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_380337"
@@ -2894,26 +1590,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={529}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={530}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={530}>
                                     DEEL.BY
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={531}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={532}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={531}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={532}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_255884"
@@ -2930,26 +1615,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={535}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={536}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={536}>
                                     imarket.by
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={537}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={538}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={537}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={538}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_47281"
@@ -2966,26 +1640,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={541}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={542}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={542}>
                                     MMG.by
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={543}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={544}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={543}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={544}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_221610"
@@ -3002,26 +1665,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={547}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={548}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={548}>
                                     NOVATEK
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={549}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={550}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={549}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={550}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_45816"
@@ -3038,26 +1690,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={553}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={554}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={554}>
                                     RAM.BY
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={555}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={556}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={555}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={556}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_181298"
@@ -3074,26 +1715,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={559}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={560}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={560}>
                                     SOCKET.BY
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={561}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={562}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={561}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={562}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_46865"
@@ -3110,26 +1740,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={565}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={566}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={566}>
                                     TTN.by
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={567}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={568}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={567}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={568}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_38395"
@@ -3146,26 +1765,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={571}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={572}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={572}>
                                     ULTRA.by
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={573}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={574}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={573}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={574}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_476488"
@@ -3182,26 +1790,15 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={577}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={578}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={578}>
                                     win7
                                   </span>
                                 </div>
                               </label>
                             </div>
                           </li>
-                          <li
-                            className="_1-l0XiE_ze"
-                            data-da31bdc5="true"
-                            data-reactid={579}
-                          >
-                            <div
-                              className="_16hsbhrgAf"
-                              data-17df2f2a="true"
-                              data-reactid={580}
-                            >
+                          <li className="_1-l0XiE_ze" data-da31bdc5="true" data-reactid={579}>
+                            <div className="_16hsbhrgAf" data-17df2f2a="true" data-reactid={580}>
                               <label
                                 className="_1e7iX1B2oW"
                                 htmlFor="fesh_223151"
@@ -3218,10 +1815,7 @@ class SearchLayout extends React.Component {
                                   defaultValue="on"
                                 />
                                 <div className="LhMupC0dLR" data-reactid={583}>
-                                  <span
-                                    className="NVoaOvqe58"
-                                    data-reactid={584}
-                                  >
+                                  <span className="NVoaOvqe58" data-reactid={584}>
                                     Мультиком
                                   </span>
                                 </div>
@@ -3229,16 +1823,8 @@ class SearchLayout extends React.Component {
                             </div>
                           </li>
                         </ul>
-                        <footer
-                          className="_2XviVqx9xN"
-                          data-da31bdc5="true"
-                          data-reactid={585}
-                        >
-                          <a
-                            href="/"
-                            className="_2Wg9rE1HzR"
-                            data-reactid={586}
-                          >
+                        <footer className="_2XviVqx9xN" data-da31bdc5="true" data-reactid={585}>
+                          <a href="/" className="_2Wg9rE1HzR" data-reactid={586}>
                             Показать всё
                           </a>
                         </footer>
@@ -3247,21 +1833,8 @@ class SearchLayout extends React.Component {
                     </div>
                   </div>
                   <div className="_3U2TeVBOWN" data-reactid={590}>
-                    <div
-                      className="_2Wdscr8iIC"
-                      data-57ec50ea="true"
-                      data-reactid={591}
-                    >
-                      <a
-                        className="OcaftndW9c _2bjY2zQo59 _4WmLhr2Vhx _2Kihe5N2Sn"
-                        href="https://market.yandex.by/catalog/54539/filters?onstock=0&deliveryincluded=0&local-offers-first=0&hid=91052&text=%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D1%8B"
-                        data-6770afab="true"
-                        data-reactid={592}
-                      >
-                        <span className="_28j8Lq95ZZ" data-reactid={595}>
-                          Все фильтры
-                        </span>
-                      </a>
+                    <div className="_2Wdscr8iIC" data-57ec50ea="true" data-reactid={591}>
+                      <Button>Все фильтры</Button>
                     </div>
                   </div>
                 </div>
@@ -3270,8 +1843,8 @@ class SearchLayout extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default SearchLayout;
+export default SearchLayout

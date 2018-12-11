@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'antd'
 import Header from './Header'
 import Tabs from './Tabs'
 import PageSearch from './PageSearch'
@@ -34,7 +35,7 @@ class Main extends React.Component {
           className="n-notification-center n-notification-center_visibility_no i-bem n-notification-center_js_inited"
           data-bem="{n-notification-center:}"
         />
-
+        <Button>TEST</Button>
         <Footer />
         {/* <iframe
           src="./old/saved_resource.html"
