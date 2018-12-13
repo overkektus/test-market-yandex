@@ -228,16 +228,10 @@ class SearchLayout extends React.Component {
                           {Object.entries(groupedManufactures).map(([litera, list]) => (
                             <OptGroup key={litera} label={litera}>
                               {list.map((item) => (
-                                <Option value={item}>{item}</Option>
+                                <Option key={item} value={item}>{item}</Option>
                               ))}
                             </OptGroup>
                           ))}
-                          {/* {alphabet.map((lit) => {
-                          
-                        })}
-                          {manufactures.map((item) => (
-                            <Option value={item}>{item}</Option>
-                          ))} */}
                         </Select>
                         <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={70}>
                           {manufactures.map((item) => (

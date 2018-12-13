@@ -6537,6 +6537,11 @@ please-upgrade-node@^3.0.2:
   dependencies:
     semver-compare "^1.0.0"
 
+plural-ru@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/plural-ru/-/plural-ru-2.0.1.tgz#0f39995d0344eb82865b69547f8fd1c5c8710aa9"
+  integrity sha512-BsFyo/VVoW7YNozdJDIh/UKkth9FpkA9PXxCMYXkhh3Cxh/p9LBAthQ4j+hQ9lN4GpNFi4RzYLOCr89+jTEcOw==
+
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"

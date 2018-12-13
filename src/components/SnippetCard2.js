@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { Tooltip } from 'antd'
+import { noun } from 'plural-ru'
 
 class SnippetCard2 extends React.Component {
   render() {
+    const {
+      id,
+      title,
+      price,
+      badge,
+      photo,
+      rating,
+      reviews,
+      matrix,
+      diagonal,
+      resolution,
+      connect,
+      like,
+      purchaced,
+      offers,
+      minPrice,
+      isFlickerFree,
+      bright,
+      frequency,
+    } = this.props
     return (
       <div
         className="n-snippet-card2 i-bem b-zone b-spy-visible b-spy-visible_js_inited n-snippet-card2_js_inited b-zone_js_inited"
@@ -90,10 +113,9 @@ class SnippetCard2 extends React.Component {
           >
             <img
               className="image"
-              src="./old/6hq"
+              src={`/images/${photo}`}
               title="\u041C\u043E\u043D\u0438\u0442\u043E\u0440 Viewsonic VA2719-2K-smhd"
               alt="\u041C\u043E\u043D\u0438\u0442\u043E\u0440 Viewsonic VA2719-2K-smhd"
-              srcSet="//avatars.mds.yandex.net/get-mpic/466729/img_id5595280924220369215.jpeg/9hq 1.5x"
             />
           </a>
         </div>
@@ -102,90 +124,134 @@ class SnippetCard2 extends React.Component {
             <div className="n-snippet-card2__title">
               <a
                 className="link n-link_theme_blue i-bem link_js_inited"
-                href="https://market.yandex.by/product--monitor-viewsonic-va2719-2k-smhd/1963924408?show-uid=15435075889809456972816001&nid=54539&context=search"
+                href={`/review?id=${id}`}
                 title="\u041C\u043E\u043D\u0438\u0442\u043E\u0440 Viewsonic VA2719-2K-smhd"
               >
-                Монитор Viewsonic VA2719-2K-smhd
+                {title}
               </a>
             </div>
             <div className="n-snippet-card2__header-stickers">
               <a
                 className="n-snippet-card2__rating link link_theme_gray link_type_reviews i-bem link_js_inited"
-                href="https://market.yandex.by/product--monitor-viewsonic-va2719-2k-smhd/1963924408/reviews?show-uid=15435075889809456972816001"
+                href="/review"
               >
-                <div
-                  className="rating hint i-bem rating_outline_yes"
-                  date-rate={5}
-                  data-bem="{hint:{content:\u0420\u0435\u0439\u0442\u0438\u043D\u0433\xA0\u043C\u043E\u0434\u0435\u043B\u0438\xA05\xA0\u0438\u0437\xA05,offset:15}}"
-                >
-                  <div className="rating__value">5.0</div>
-                  <div className="rating__corner">
-                    <div className="rating__triangle" />
+                <Tooltip placement="right" title={`Рейтинг модели ${rating} из 5`}>
+                  <div
+                    className="rating hint i-bem rating_outline_yes"
+                    date-rate={5}
+                    data-bem="{hint:{content:\u0420\u0435\u0439\u0442\u0438\u043D\u0433\xA0\u043C\u043E\u0434\u0435\u043B\u0438\xA05\xA0\u0438\u0437\xA05,offset:15}}"
+                  >
+                    <div className="rating__value">{rating}</div>
+                    <div className="rating__corner">
+                      <div className="rating__triangle" />
+                    </div>
                   </div>
-                </div>
-                <span>1 отзыв</span>
+                </Tooltip>
+                {reviews && (
+                  <span>
+                    {reviews} {noun(reviews, 'отзыв', 'отзыва', 'отзывов')}
+                  </span>
+                )}
               </a>
             </div>
           </div>
           <div className="n-snippet-card2__content">
-            <div className="n-snippet-card2__reasons-to-buy-item">
-              <div
-                className="n-reasons-to-buy n-reasons-to-buy_type_best b-zone b-spy-visible i-bem n-reasons-to-buy_tag_best n-reasons-to-buy_js_inited b-spy-visible_js_inited b-zone_js_inited"
-                data-bem="{n-reasons-to-buy:,b-spy-visible:,b-zone:{name:reason-to-buy,data:{entity:product,id:1963924408,taggedEntity:best}}}"
-              >
-                <div className="n-reasons-to-buy__content">
-                  <span className="n-reasons-to-buy__label">
-                    Покупателям нравится{' '}
-                    <span className="n-reason-to-buy__best-item">подставка</span>,{' '}
-                    <span className="n-reason-to-buy__best-item">качество картинки</span>
-                  </span>
-                  <div
-                    data-bem="{popup:{directions:{to:bottom,axis:left,tail:{axis:left}}}}"
-                    className="popup  i-bem  popup_autoclosable_yes  popup_adaptive_yes  popup_animate_yes  popup_theme_info  popup_type_reasons-to-buy popup_js_inited"
-                  >
-                    <div className="popup__under  " />
-                    <i className="popup__tail" />
-                    <div className="popup__content">
-                      Характеристики, которые покупатели отметили высокой оценкой в отзывах
+            {like && (
+              <div className="n-snippet-card2__reasons-to-buy-item">
+                <div
+                  className="n-reasons-to-buy n-reasons-to-buy_type_best b-zone b-spy-visible i-bem n-reasons-to-buy_tag_best n-reasons-to-buy_js_inited b-spy-visible_js_inited b-zone_js_inited"
+                  data-bem="{n-reasons-to-buy:,b-spy-visible:,b-zone:{name:reason-to-buy,data:{entity:product,id:1963924408,taggedEntity:best}}}"
+                >
+                  <div className="n-reasons-to-buy__content">
+                    <span className="n-reasons-to-buy__label">
+                      Покупателям нравится{' '}
+                      {like.map((item, index) => {
+                        const delimiter = index === like.length - 1 ? '' : ', '
+                        return (
+                          <Fragment key={item}>
+                            <span className="n-reason-to-buy__best-item">{item}</span>
+                            {delimiter}
+                          </Fragment>
+                        )
+                      })}
+                    </span>
+                    <div
+                      data-bem="{popup:{directions:{to:bottom,axis:left,tail:{axis:left}}}}"
+                      className="popup  i-bem  popup_autoclosable_yes  popup_adaptive_yes  popup_animate_yes  popup_theme_info  popup_type_reasons-to-buy popup_js_inited"
+                    >
+                      <div className="popup__under  " />
+                      <i className="popup__tail" />
+                      <div className="popup__content">
+                        Характеристики, которые покупатели отметили высокой оценкой в отзывах
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
             <ul className="n-snippet-card2__desc n-snippet-card2__desc_type_list">
-              <li className="n-snippet-card2__desc-item">ЖК-монитор с диагональю 27"</li>
-              <li className="n-snippet-card2__desc-item">тип матрицы экрана TFT IPS</li>
-              <li className="n-snippet-card2__desc-item">разрешение 2560x1440 (16:9)</li>
-              <li className="n-snippet-card2__desc-item">подключение: HDMI, DisplayPort</li>
-              <li className="n-snippet-card2__desc-item">яркость 300 кд/м2</li>
+              <li className="n-snippet-card2__desc-item">ЖК-монитор с диагональю {diagonal}"</li>
+              <li className="n-snippet-card2__desc-item">тип матрицы экрана {matrix}</li>
+              <li className="n-snippet-card2__desc-item">разрешение {resolution}</li>
+              {connect && (
+                <li className="n-snippet-card2__desc-item">подключение: {connect.join(', ')}</li>
+              )}
+              {bright && <li className="n-snippet-card2__desc-item">яркость {bright} кд/м2</li>}
+              {frequency && <li className="n-snippet-card2__desc-item">частота {frequency} Гц</li>}
+              {isFlickerFree && <li className="n-snippet-card2__desc-item">Flicker Free</li>}
             </ul>
-            <div className="n-snippet-card2__reasons-to-buy-item" />
+            <div class="n-snippet-card2__reasons-to-buy-item">
+              {purchaced && (
+                <Tooltip placement="bottom" title="По данным Яндекс.Маркета за 2 месяца">
+                  <div
+                    class="n-reasons-to-buy n-reasons-to-buy_type_interest-simple b-zone b-spy-visible i-bem n-reasons-to-buy_tag_interest n-reasons-to-buy_js_inited b-spy-visible_js_inited b-zone_js_inited _popup-destructor _popup-destructor_js_inited"
+                    data-bem='{"n-reasons-to-buy":"","b-spy-visible":"","b-zone":{"name":"reason-to-buy","data":{"entity":"product","id":194605098,"taggedEntity":"interest"}}}'
+                  >
+                    <div class="n-reasons-to-buy__content">
+                      <span class="n-reasons-to-buy__label">
+                        {purchaced} {noun(purchaced, 'человек', 'человека', 'человек')} человека
+                        купили этот товар
+                      </span>
+                      <div class="n-reasons-to-buy__bottom" />
+                    </div>
+                  </div>
+                </Tooltip>
+              )}
+            </div>
           </div>
         </div>
         <div className="n-snippet-card2__part n-snippet-card2__part_type_right">
           <div className="n-snippet-card2__top">
-            <div className="n-snippet-card2__price">
-              <div className="n-snippet-card2__main-price">
-                <div className="n-snippet-card2__main-price-wrapper">
-                  <a
-                    className="link n-smart-link i-bem n-smart-link_js_inited"
-                    href="https://market.yandex.by/product--monitor-viewsonic-va2719-2k-smhd/1963924408/offers?track=srchlink&show-uid=15435075889809456972816001"
-                    data-bem="{n-smart-link:{subscriptions:[filters]}}"
-                  >
-                    <div className="price">633,83 б.p.</div>
-                  </a>
+            {price && (
+              <div className="n-snippet-card2__price">
+                <div className="n-snippet-card2__main-price">
+                  <div className="n-snippet-card2__main-price-wrapper">
+                    <a
+                      className="link n-smart-link i-bem n-smart-link_js_inited"
+                      href="https://market.yandex.by/product--monitor-viewsonic-va2719-2k-smhd/1963924408/offers?track=srchlink&show-uid=15435075889809456972816001"
+                      data-bem="{n-smart-link:{subscriptions:[filters]}}"
+                    >
+                      <div className="price">{price.toLocaleString()} б.p.</div>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="n-snippet-card2__more-prices-link">
-              <a
-                className="link n-link_theme_blue link_type_prices i-bem link_js_inited"
-                href="https://market.yandex.by/product--monitor-viewsonic-va2719-2k-smhd/1963924408/offers?track=srchbtn&show-uid=15435075889809456972816001&context=search"
-              >
-                3 предложения
-              </a>{' '}
-              от <span className="price">626,55 б.p.</span>
-            </div>
+            )}
+            {offers && (
+              <div className="n-snippet-card2__more-prices-link">
+                <a
+                  className="link n-link_theme_blue link_type_prices i-bem link_js_inited"
+                  href="https://market.yandex.by/product--monitor-viewsonic-va2719-2k-smhd/1963924408/offers?track=srchbtn&show-uid=15435075889809456972816001&context=search"
+                >
+                  {offers} {noun(offers, 'предложение', 'предложения', 'предложений')}
+                </a>{' '}
+                {minPrice && (
+                  <Fragment>
+                    от <span className="price">{minPrice.toLocaleString()} б.p.</span>
+                  </Fragment>
+                )}
+              </div>
+            )}
             <div
               className="n-badge-review b-zone b-spy-visible i-bem n-reasons-to-buy n-reasons-to-buy_tag_review b-spy-visible_js_inited b-zone_js_inited"
               data-bem="{n-badge-review:,b-spy-visible:,b-zone:{name:reason-to-buy,data:{entity:product,id:1963924408,taggedEntity:review,isShown:false}}}"
@@ -196,6 +262,31 @@ class SnippetCard2 extends React.Component {
       </div>
     )
   }
+}
+
+SnippetCard2.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  badge: PropTypes.string,
+  photo: PropTypes.string,
+  rating: PropTypes.number,
+  reviews: PropTypes.number,
+  matrix: PropTypes.string.isRequired,
+  diagonal: PropTypes.number.isRequired,
+  resolution: PropTypes.string.isRequired,
+  connect: PropTypes.arrayOf(PropTypes.string),
+  like: PropTypes.arrayOf(PropTypes.string),
+  purchaced: PropTypes.number,
+  offers: PropTypes.number,
+  minPrice: PropTypes.number,
+  isFlickerFree: PropTypes.bool,
+  bright: PropTypes.number,
+  frequency: PropTypes.number,
+}
+
+SnippetCard2.defaultProps = {
+  photo: 'julian.jpg',
 }
 
 export default SnippetCard2

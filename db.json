@@ -1,6 +1,7 @@
 {
   "goods": [
     {
+      "id": "1",
       "title": "Монитор BenQ GW2480E",
       "price": 293.24,
       "badge": "Выбор покупателей",
@@ -17,10 +18,10 @@
       "minPrice": 260.5
     },
     {
+      "id": "2",
       "title": "Монитор LG 22MP58D",
       "price": 208.5,
       "badge": "Новинка",
-      "photo": "6hq2.jpg",
       "rating": 4.1,
       "reviews": 32,
       "matrix": "MVA",
@@ -28,13 +29,12 @@
       "resolution": "2560x1440 (16:9)",
       "isFlickerFree": true,
       "connect": ["VGA", "DVI", "HDMI"],
-      "like": ["качество сборки"],
-      "purchaced": 21,
       "offers": 20,
       "minPrice": 100,
       "bright": 190.21
     },
     {
+      "id": "3",
       "title": "Монитор LG 22MP58D",
       "price": 253.43,
       "photo": "6hq3.jpg",
@@ -53,6 +53,7 @@
       "frequency": 144
     },
     {
+      "id": "4",
       "title": "Монитор Philips 273V7QJAB",
       "price": 217.2,
       "photo": "6hq4.jpg",
@@ -70,6 +71,7 @@
       "frequency": 100
     },
     {
+      "id": "5",
       "title": "Монитор Samsung C24F390FHI",
       "price": 287.94,
       "badge": "Выбор покупателей",
@@ -89,6 +91,7 @@
       "frequency": 144
     },
     {
+      "id": "6",
       "title": "Монитор DELL P2418D",
       "price": 325.21,
       "badge": "Новинка",
@@ -107,6 +110,7 @@
       "bright": 250
     },
     {
+      "id": "7",
       "title": "Монитор BenQ PD2700U",
       "price": 284.72,
       "photo": "6hq7.jpg",
@@ -124,6 +128,7 @@
       "frequency": 144
     },
     {
+      "id": "8",
       "title": "Монитор LG 22MP58D",
       "price": 250.7,
       "photo": "6hq8.jpg",

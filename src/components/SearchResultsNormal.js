@@ -1,4 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { dispatch } from '../store'
+import { readGoods } from '../ducks/goods'
+import { Spin } from 'antd'
 import SnippetCard2 from './SnippetCard2'
 import PagerMore from './PagerMore'
 import Pager from './Pager'
@@ -9,7 +13,12 @@ import ReviewsHub from './ReviewsHub'
 import PopularSearch from './PopularSearch'
 
 class SearchResultsNormal extends React.Component {
+  componentDidMount() {
+    dispatch(readGoods())
+  }
+
   render() {
+    const { items, isLoading } = this.props
     return (
       <div className="layout__col i-bem layout__col_search-results_normal">
         <div
@@ -43,7 +52,11 @@ class SearchResultsNormal extends React.Component {
               className="n-snippet-list n-snippet-list_type_vertical metrika b-zone b-spy-init b-spy-events i-bem metrika_js_inited snippet-list_js_inited b-spy-init_js_inited b-zone_js_inited"
               data-bem="{metrika:{productOffers:{place:,inStock:0,byRegion:0,userRegion:157}},snippet-list:,b-zone:{name:snippet-list,data:{products:{count:48},offers:{count:0},articles:{count:4},collections:{count:0},total:52}},b-spy-init:}"
             >
-              <SnippetCard2 />
+              <Spin spinning={isLoading}>
+                {items.map((item) => (
+                  <SnippetCard2 key={item.id} {...item} />
+                ))}
+              </Spin>
               {/*
               <div
                 className="n-snippet-card2 i-bem b-zone b-spy-visible b-spy-visible_js_inited b-zone_js_inited n-snippet-card2_js_inited"
@@ -9410,4 +9423,9 @@ class SearchResultsNormal extends React.Component {
   }
 }
 
-export default SearchResultsNormal
+const mapStateToProps = (state) => ({
+  isLoading: state.goods.isLoading,
+  items: state.goods.items,
+})
+
+export default connect(mapStateToProps)(SearchResultsNormal)
