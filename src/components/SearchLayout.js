@@ -1,5 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Button, Input, Checkbox, Select, Radio } from 'antd'
+import { dispatch } from '../store'
+import { readGoods, setFilter } from '../ducks/goods'
 
 const { Option } = Select
 const { OptGroup } = Select
@@ -10,11 +13,11 @@ const hotManufactures = 'Acer,AOC,ASUS,BenQ,DELL,HP,Iiyama,LG,NEC,Phillips,Samsu
   ',',
 )
 
-const manufactures = [...hotManufactures, ...tailManufactures].sort()
+const sourceManufactures = [...hotManufactures, ...tailManufactures].sort()
 
 const radioStyle = { display: 'block', height: '30px', lineHeight: '30px' }
 
-const groupedManufactures = manufactures.reduce((accumulator, item) => {
+const groupedManufactures = sourceManufactures.reduce((accumulator, item) => {
   const litera = item[0]
   const list = accumulator[litera] || []
   list.push(item)
@@ -25,11 +28,54 @@ const groupedManufactures = manufactures.reduce((accumulator, item) => {
 const deliveries = {
   with: 'С доставкой',
   without: 'Самовывоз',
-  any: 'Любой'
+  any: 'Любой',
 }
 
 class SearchLayout extends React.Component {
+  // state = {
+  //   priceStart: null,
+  //   priceFinal: null,
+  //   manufactures: [],
+  //   isWithDeliveryPrice: false,
+  //   isOnSale: false,
+  // }
+
+  readGoods = () => {
+    dispatch(readGoods())
+  }
+
+  changedPriceStart = (event) => {
+    dispatch(setFilter({ priceStart: event.target.value }))
+  }
+
+  changedPriceFinal = (event) => {
+    dispatch(setFilter({ priceFinal: event.target.value }))
+  }
+
+  handlePressEnter = () => {
+    alert('!!!')
+  }
+
+  handleIsWithDeliveryPrice = (event) => {
+    dispatch(setFilter({ isWithDeliveryPrice: event.target.checked }))
+  }
+
+  handleIsOnSale = (event) => {
+    const isOnSale = event.target.checked
+    dispatch(setFilter({ isOnSale }))
+    this.readGoods()
+  }
+
+  changedManufacture = (value) => {
+    const manufactures = value
+    dispatch(setFilter({ manufactures }))
+    this.readGoods()
+  }
+
   render() {
+    const {
+      filter: { priceFinal, priceStart, isWithDeliveryPrice, isOnSale, manufactures },
+    } = this.props
     return (
       <div className="search-layout">
         <div>
@@ -150,7 +196,12 @@ class SearchLayout extends React.Component {
                                 data-214865aa="true"
                                 data-reactid={41}
                               >
-                                <Input addonBefore="от" />
+                                <Input
+                                  addonBefore="от"
+                                  onChange={this.changedPriceStart}
+                                  onPressEnter={this.handlePressEnter}
+                                  value={priceStart === null ? '' : priceStart}
+                                />
                               </p>
                             </li>
                             <li className="_3E2Wzu8o3H" data-reactid={45}>
@@ -160,19 +211,29 @@ class SearchLayout extends React.Component {
                                 data-214865aa="true"
                                 data-reactid={46}
                               >
-                                <Input addonBefore="до" />
+                                <Input
+                                  addonBefore="до"
+                                  onChange={this.changedPriceFinal}
+                                  onPressEnter={this.handlePressEnter}
+                                  value={priceFinal === null ? '' : priceFinal}
+                                />
                               </p>
                             </li>
                           </ul>
                         </div>
                         <div className="_2vOXvqbQ4f" data-bccec8a7="true" data-reactid={50}>
-                          <Checkbox>Цена с учётом доставки</Checkbox>
+                          <Checkbox
+                            onChange={this.handleWithDeliveryPrice}
+                            checked={isWithDeliveryPrice}
+                          >
+                            Цена с учётом доставки
+                          </Checkbox>
                         </div>
                       </fieldset>
                       <div className="_3vgfOcGSnv" data-reactid={55} />
                     </div>
                     <div className="_2Hue1bCg-N" data-f3c53385="true" data-reactid={57}>
-                      <Checkbox>
+                      <Checkbox onChange={this.handleIsOnSale} checked={isOnSale}>
                         <b>В продаже</b>
                       </Checkbox>
                       {/* <fieldset
@@ -224,17 +285,22 @@ class SearchLayout extends React.Component {
                           mode="multiple"
                           style={{ width: '100%' }}
                           placeholder="Please select"
+                          onChange={this.changedManufacture}
+                          value={manufactures}
+                          onInputKeyDown={this.handleEnterManufactures}
                         >
                           {Object.entries(groupedManufactures).map(([litera, list]) => (
                             <OptGroup key={litera} label={litera}>
                               {list.map((item) => (
-                                <Option key={item} value={item}>{item}</Option>
+                                <Option key={item} value={item}>
+                                  {item}
+                                </Option>
                               ))}
                             </OptGroup>
                           ))}
                         </Select>
                         <ul className="_2y67xS5HuR" data-da31bdc5="true" data-reactid={70}>
-                          {manufactures.map((item) => (
+                          {sourceManufactures.map((item) => (
                             <li
                               key={item}
                               className="_1-l0XiE_ze"
@@ -1841,4 +1907,10 @@ class SearchLayout extends React.Component {
   }
 }
 
-export default SearchLayout
+const mapStateToProps = (state) => {
+  return {
+    filter: state.goods.filter,
+  }
+}
+
+export default connect(mapStateToProps)(SearchLayout)

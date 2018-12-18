@@ -10,6 +10,7 @@ class SnippetCard2 extends React.Component {
       title,
       price,
       badge,
+      discount,
       photo,
       rating,
       reviews,
@@ -43,7 +44,13 @@ class SnippetCard2 extends React.Component {
                 data-bem="{wishlist-control:{item:{type:model,itemId:1963924408,hid:91052,displayName:\u041C\u043E\u043D\u0438\u0442\u043E\u0440 Viewsonic VA2719-2K-smhd,modelId:1963924408,addSign:true},image:{url://avatars.mds.yandex.net/get-mpic/466729/img_id5595280924220369215.jpeg/2hq}},hint:{to:top,content:\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C\xA0\u0432\xA0\u043E\u0442\u043B\u043E\u0436\u0435\u043D\u043D\u044B\u0435},pseudo-checkbox:,metrika:,b-zone:{name:to-wishlist}}"
               >
                 <i className="image image_name_favorite" />
-                <i className="image image_name_favorite-activated" />
+                <Tooltip
+                  placement="right"
+                  title={true ? 'Добавить в отложенные' : 'Удалить из отложенных'}
+                >
+                  {/* <Button icon="heart"></Button> */}
+                  <i className="image image_name_favorite-activated" />
+                </Tooltip>
                 <span className="n-product-toolbar__item-label n-product-toolbar__item-label_activated_no">
                   Отложить
                 </span>
@@ -63,7 +70,13 @@ class SnippetCard2 extends React.Component {
                 data-bem="{n-user-lists_type_compare:{id:1963924408,name:\u041C\u043E\u043D\u0438\u0442\u043E\u0440 Viewsonic VA2719-2K-smhd,hid:91052,catname:\u041C\u043E\u043D\u0438\u0442\u043E\u0440\u044B,image:{url://avatars.mds.yandex.net/get-mpic/466729/img_id5595280924220369215.jpeg/2hq},link:/compare?track=rmmbr,inComparison:true},hint:{to:top}}"
               >
                 <i className="image image_name_compare" />
-                <i className="image image_name_compare-in-list" />
+                <Tooltip
+                  placement="right"
+                  title={true ? 'Добавить к сравнению' : 'Удалить из сравнения'}
+                >
+                  {/* <Button icon="plus"></Button> */}
+                  <i className="image image_name_compare-in-list" />
+                </Tooltip>
                 <span className="n-product-toolbar__item-label n-product-toolbar__item-label_activated_no">
                   Сравнить
                 </span>
@@ -75,35 +88,40 @@ class SnippetCard2 extends React.Component {
           </div>
         </div>
         <div className="n-snippet-card2__stickers">
-          {/* <div
-                    className="n-reasons-to-buy n-reasons-to-buy_type_recommend b-zone b-spy-visible i-bem n-reasons-to-buy_tag_recommend n-reasons-to-buy_js_inited b-spy-visible_js_inited b-zone_js_inited"
-                    data-bem="{n-reasons-to-buy:,b-spy-visible:,b-zone:{name:reason-to-buy,data:{entity:product,id:1729623123,taggedEntity:recommend}}}"
+          {!discount && badge === 'Выбор покупателей' && (
+            <Tooltip
+              placement="bottomLeft"
+              title="Больше 80% покупателей советуют купить этот товар в своих отзывах на Маркете."
+            >
+              <div
+                className="n-reasons-to-buy n-reasons-to-buy_type_recommend b-zone b-spy-visible i-bem n-reasons-to-buy_tag_recommend n-reasons-to-buy_js_inited b-spy-visible_js_inited b-zone_js_inited "
+                data-bem="{n-reasons-to-buy:,b-spy-visible:,b-zone:{name:reason-to-buy,data:{entity:product,id:1729623123,taggedEntity:recommend}}}"
+              >
+                <div className="n-reasons-to-buy__content">
+                  <span className="n-reasons-to-buy__label">Выбор покупателей</span>
+                  <div
+                    data-bem="{popup:{directions:{to:bottom,axis:left,offset:{top:5},tail:{offset:{left:-40}}}}}"
+                    className="popup  i-bem  popup_autoclosable_yes  popup_adaptive_yes  popup_animate_yes  popup_theme_info  popup_type_reasons-to-buy popup_js_inited"
                   >
-                    <div className="n-reasons-to-buy__content">
-                      <span className="n-reasons-to-buy__label">
-                        Выбор покупателей
-                      </span>
-                      <div
-                        data-bem="{popup:{directions:{to:bottom,axis:left,offset:{top:5},tail:{offset:{left:-40}}}}}"
-                        className="popup  i-bem  popup_autoclosable_yes  popup_adaptive_yes  popup_animate_yes  popup_theme_info  popup_type_reasons-to-buy popup_js_inited"
-                      >
-                        <div className="popup__under  " />
-                        <i className="popup__tail" />
-                        <div className="popup__content">
-                          Больше 80% покупателей советуют купить этот товар в
-                          своих отзывах на Маркете.
-                        </div>
-                      </div>
+                    <div className="popup__under  " />
+                    <i className="popup__tail" />
+                    <div className="popup__content">
+                      Больше 80% покупателей советуют купить этот товар в своих отзывах на Маркете.
                     </div>
-                  </div> */}
+                  </div>
+                </div>
+              </div>
+            </Tooltip>
+          )}
+          {!discount && badge === 'Новинка' && (
+            <div className="stickers__sticker stickers__sticker_type_new">Новинка</div>
+          )}
 
-          <div className="stickers__sticker stickers__sticker_type_new">Новинка</div>
-
-          {/* <div className="stickers__sticker stickers__sticker_type_discount">
-                          <span className="sticker_type_discount__text">
-                            -14%
-                          </span>
-                        </div> */}
+          {discount && (
+            <div className="stickers__sticker stickers__sticker_type_discount">
+              <span className="sticker_type_discount__text">-14%</span>
+            </div>
+          )}
         </div>
         <div className="n-snippet-card2__part n-snippet-card2__part_type_left">
           <a
@@ -200,19 +218,19 @@ class SnippetCard2 extends React.Component {
               {frequency && <li className="n-snippet-card2__desc-item">частота {frequency} Гц</li>}
               {isFlickerFree && <li className="n-snippet-card2__desc-item">Flicker Free</li>}
             </ul>
-            <div class="n-snippet-card2__reasons-to-buy-item">
+            <div className="n-snippet-card2__reasons-to-buy-item">
               {purchaced && (
                 <Tooltip placement="bottom" title="По данным Яндекс.Маркета за 2 месяца">
                   <div
-                    class="n-reasons-to-buy n-reasons-to-buy_type_interest-simple b-zone b-spy-visible i-bem n-reasons-to-buy_tag_interest n-reasons-to-buy_js_inited b-spy-visible_js_inited b-zone_js_inited _popup-destructor _popup-destructor_js_inited"
+                    className="n-reasons-to-buy n-reasons-to-buy_type_interest-simple b-zone b-spy-visible i-bem n-reasons-to-buy_tag_interest n-reasons-to-buy_js_inited b-spy-visible_js_inited b-zone_js_inited _popup-destructor _popup-destructor_js_inited"
                     data-bem='{"n-reasons-to-buy":"","b-spy-visible":"","b-zone":{"name":"reason-to-buy","data":{"entity":"product","id":194605098,"taggedEntity":"interest"}}}'
                   >
-                    <div class="n-reasons-to-buy__content">
-                      <span class="n-reasons-to-buy__label">
+                    <div className="n-reasons-to-buy__content">
+                      <span className="n-reasons-to-buy__label">
                         {purchaced} {noun(purchaced, 'человек', 'человека', 'человек')} человека
                         купили этот товар
                       </span>
-                      <div class="n-reasons-to-buy__bottom" />
+                      <div className="n-reasons-to-buy__bottom" />
                     </div>
                   </div>
                 </Tooltip>
@@ -269,6 +287,7 @@ SnippetCard2.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   badge: PropTypes.string,
+  discount: PropTypes.string,
   photo: PropTypes.string,
   rating: PropTypes.number,
   reviews: PropTypes.number,
@@ -286,7 +305,7 @@ SnippetCard2.propTypes = {
 }
 
 SnippetCard2.defaultProps = {
-  photo: 'julian.jpg',
+  photo: 'default.jpg',
 }
 
 export default SnippetCard2

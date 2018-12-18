@@ -10,6 +10,13 @@ const initialState = {
   page: 1,
   isGameOver: false,
   isLoading: false,
+  filter: {
+    priceStart: null,
+    priceFinal: null,
+    manufactures: [],
+    isWithDeliveryPrice: false,
+    isOnSale: false,
+  },
 }
 
 const reducer = createReducer({}, initialState)
@@ -37,13 +44,26 @@ reducer.on(readFailure, (state) => ({
   isLoading: false,
 }))
 
-export const readGoods = ({ selectedCategoryIds, isLoadMore } = {}) => (dispatch, getState) => {
-  const filter = (selectedCategoryIds || [])
-    .reduce((accumulator, id) => {
-      return [...accumulator, `categoryId=${id}`]
+export const setFilter = createAction(`${NS}SET_FILTER`)
+reducer.on(setFilter, (state, changedFilter) => ({
+  ...state,
+  filter: { ...state.filter, ...changedFilter },
+}))
+
+export const readGoods = ({ manufactures, isOnSale, isLoadMore } = {}) => (dispatch, getState) => {
+  const state = getState()
+  const { manufactures, isOnSale } = state.goods.filter
+  let filter = (manufactures || [])
+    .reduce((accumulator, value) => {
+      return [...accumulator, `manufacture=${value}`]
     }, [])
     .join('&')
-  const state = getState()
+  if (isOnSale) {
+    if (filter) {
+      filter += '&'
+    }
+    filter += 'isOnSale=true'
+  }
   const page = isLoadMore ? state.goods.page + 1 : 1
   dispatch(readRequest())
   return axios

@@ -3,8 +3,10 @@
     {
       "id": "1",
       "title": "Монитор BenQ GW2480E",
+      "manufacture": "BenQ",
       "price": 293.24,
       "badge": "Выбор покупателей",
+      "discount": "14%",
       "photo": "6hq1.jpg",
       "rating": 4.9,
       "reviews": 85,
@@ -15,13 +17,17 @@
       "like": ["качество картинки", "качество сборки"],
       "purchaced": 32,
       "offers": 20,
-      "minPrice": 260.5
+      "minPrice": 260.5,
+      "isOnSale": false
     },
     {
       "id": "2",
       "title": "Монитор LG 22MP58D",
+      "manufacture": "LG",
       "price": 208.5,
+      "photo": "6hq4.jpg",
       "badge": "Новинка",
+      "discount": "45%",
       "rating": 4.1,
       "reviews": 32,
       "matrix": "MVA",
@@ -31,11 +37,13 @@
       "connect": ["VGA", "DVI", "HDMI"],
       "offers": 20,
       "minPrice": 100,
-      "bright": 190.21
+      "bright": 190.21,
+      "isOnSale": true
     },
     {
       "id": "3",
       "title": "Монитор LG 22MP58D",
+      "manufacture": "LG",
       "price": 253.43,
       "photo": "6hq3.jpg",
       "rating": 4.7,
@@ -50,13 +58,14 @@
       "offers": 20,
       "minPrice": 250.34,
       "bright": 250,
-      "frequency": 144
+      "frequency": 144,
+      "isOnSale": false
     },
     {
       "id": "4",
       "title": "Монитор Philips 273V7QJAB",
+      "manufacture": "Philips",
       "price": 217.2,
-      "photo": "6hq4.jpg",
       "rating": 3.5,
       "reviews": 25,
       "matrix": "TN",
@@ -68,11 +77,13 @@
       "offers": 20,
       "minPrice": 200.32,
       "bright": 250,
-      "frequency": 100
+      "frequency": 100,
+      "isOnSale": true
     },
     {
       "id": "5",
       "title": "Монитор Samsung C24F390FHI",
+      "manufacture": "Samsung",
       "price": 287.94,
       "badge": "Выбор покупателей",
       "photo": "6hq5.jpg",
@@ -88,11 +99,13 @@
       "offers": 20,
       "minPrice": 260.44,
       "bright": 250,
-      "frequency": 144
+      "frequency": 144,
+      "isOnSale": true
     },
     {
       "id": "6",
       "title": "Монитор DELL P2418D",
+      "manufacture": "DELL",
       "price": 325.21,
       "badge": "Новинка",
       "photo": "6hq6.jpg",
@@ -107,11 +120,13 @@
       "purchaced": 27,
       "offers": 20,
       "minPrice": 298.68,
-      "bright": 250
+      "bright": 250,
+      "isOnSale": false
     },
     {
       "id": "7",
       "title": "Монитор BenQ PD2700U",
+      "manufacture": "BenQ",
       "price": 284.72,
       "photo": "6hq7.jpg",
       "rating": 4.7,
@@ -125,11 +140,13 @@
       "purchaced": 36,
       "offers": 20,
       "minPrice": 260.57,
-      "frequency": 144
+      "frequency": 144,
+      "isOnSale": true
     },
     {
       "id": "8",
       "title": "Монитор LG 22MP58D",
+      "manufacture": "LG",
       "price": 250.7,
       "photo": "6hq8.jpg",
       "rating": 4.6,
@@ -141,7 +158,8 @@
       "like": ["качество картинки", "качество сборки"],
       "purchaced": 21,
       "offers": 20,
-      "minPrice": 240.21
+      "minPrice": 240.21,
+      "isOnSale": false
     }
   ]
 }
